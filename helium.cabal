@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 84d7cd6e2da6f5316dfb44ada4b7ff2ec40f341cd6776d72dc7d482184a424ba
+-- hash: 96fb6066f454cd849fb3198c4892b1eba5c0e9776c26f44bbd52b3540588ff08
 
 name:           helium
 version:        1.9
@@ -103,41 +103,6 @@ library
       Helium.CodeGeneration.LLVM.Target
       Helium.CodeGeneration.LLVM.Utils
       Helium.CodeGeneration.PatternMatch
-      Helium.Lvmlib.Lvm.Asm.Data
-      Helium.Lvmlib.Lvm.Asm.Inline
-      Helium.Lvmlib.Lvm.Asm.Occur
-      Helium.Lvmlib.Lvm.Asm.ToLvm
-      Helium.Lvmlib.Lvm.Common.Byte
-      Helium.Lvmlib.Lvm.Common.Id
-      Helium.Lvmlib.Lvm.Common.IdMap
-      Helium.Lvmlib.Lvm.Common.IdSet
-      Helium.Lvmlib.Lvm.Core.Expr
-      Helium.Lvmlib.Lvm.Core.FreeVar
-      Helium.Lvmlib.Lvm.Core.LetSort
-      Helium.Lvmlib.Lvm.Core.Lift
-      Helium.Lvmlib.Lvm.Core.Main
-      Helium.Lvmlib.Lvm.Core.Module
-      Helium.Lvmlib.Lvm.Core.Normalize
-      Helium.Lvmlib.Lvm.Core.NoShadow
-      Helium.Lvmlib.Lvm.Core.Parsing.Layout
-      Helium.Lvmlib.Lvm.Core.Parsing.Lexer
-      Helium.Lvmlib.Lvm.Core.Parsing.Parser
-      Helium.Lvmlib.Lvm.Core.Parsing.Token
-      Helium.Lvmlib.Lvm.Core.PrettyId
-      Helium.Lvmlib.Lvm.Core.RemoveDead
-      Helium.Lvmlib.Lvm.Core.Saturate
-      Helium.Lvmlib.Lvm.Core.ToAsm
-      Helium.Lvmlib.Lvm.Core.Type
-      Helium.Lvmlib.Lvm.Core.Utils
-      Helium.Lvmlib.Lvm.Data
-      Helium.Lvmlib.Lvm.Import
-      Helium.Lvmlib.Lvm.Instr.Data
-      Helium.Lvmlib.Lvm.Instr.Resolve
-      Helium.Lvmlib.Lvm.Instr.Rewrite
-      Helium.Lvmlib.Lvm.Path
-      Helium.Lvmlib.Lvm.Read
-      Helium.Lvmlib.Lvm.Write
-      Helium.Lvmlib.Setup
       Helium.Main.Args
       Helium.Main.Compile
       Helium.Main.CompileUtils
@@ -198,56 +163,6 @@ library
       Helium.StaticAnalysis.Miscellaneous.UHA_Source
       Helium.Syntax.UHA_Range
       Helium.Syntax.UHA_Utils
-      Helium.Top.Setup
-      Helium.Top.TopSrc.Top.Constraint
-      Helium.Top.TopSrc.Top.Constraint.Equality
-      Helium.Top.TopSrc.Top.Constraint.Information
-      Helium.Top.TopSrc.Top.Constraint.Polymorphism
-      Helium.Top.TopSrc.Top.Constraint.Qualifier
-      Helium.Top.TopSrc.Top.Implementation.Basic
-      Helium.Top.TopSrc.Top.Implementation.FastSubstitution
-      Helium.Top.TopSrc.Top.Implementation.General
-      Helium.Top.TopSrc.Top.Implementation.Overloading
-      Helium.Top.TopSrc.Top.Implementation.SimpleSubstitution
-      Helium.Top.TopSrc.Top.Implementation.TypeGraph.ApplyHeuristics
-      Helium.Top.TopSrc.Top.Implementation.TypeGraph.Basics
-      Helium.Top.TopSrc.Top.Implementation.TypeGraph.Class
-      Helium.Top.TopSrc.Top.Implementation.TypeGraph.ClassMonadic
-      Helium.Top.TopSrc.Top.Implementation.TypeGraph.DefaultHeuristics
-      Helium.Top.TopSrc.Top.Implementation.TypeGraph.EquivalenceGroup
-      Helium.Top.TopSrc.Top.Implementation.TypeGraph.Heuristic
-      Helium.Top.TopSrc.Top.Implementation.TypeGraph.Path
-      Helium.Top.TopSrc.Top.Implementation.TypeGraph.Standard
-      Helium.Top.TopSrc.Top.Implementation.TypeGraphSubstitution
-      Helium.Top.TopSrc.Top.Implementation.TypeInference
-      Helium.Top.TopSrc.Top.Interface.Basic
-      Helium.Top.TopSrc.Top.Interface.Qualification
-      Helium.Top.TopSrc.Top.Interface.Substitution
-      Helium.Top.TopSrc.Top.Interface.TypeInference
-      Helium.Top.TopSrc.Top.Monad.Select
-      Helium.Top.TopSrc.Top.Monad.StateFix
-      Helium.Top.TopSrc.Top.Ordering.Tree
-      Helium.Top.TopSrc.Top.Ordering.TreeWalk
-      Helium.Top.TopSrc.Top.Solver
-      Helium.Top.TopSrc.Top.Solver.Greedy
-      Helium.Top.TopSrc.Top.Solver.PartitionCombinator
-      Helium.Top.TopSrc.Top.Solver.SwitchCombinator
-      Helium.Top.TopSrc.Top.Solver.TypeGraph
-      Helium.Top.TopSrc.Top.Types
-      Helium.Top.TopSrc.Top.Types.Classes
-      Helium.Top.TopSrc.Top.Types.Kinds
-      Helium.Top.TopSrc.Top.Types.Primitive
-      Helium.Top.TopSrc.Top.Types.Qualification
-      Helium.Top.TopSrc.Top.Types.Quantification
-      Helium.Top.TopSrc.Top.Types.Schemes
-      Helium.Top.TopSrc.Top.Types.Substitution
-      Helium.Top.TopSrc.Top.Types.Synonym
-      Helium.Top.TopSrc.Top.Types.Unification
-      Helium.Top.TopSrc.Top.Util.Embedding
-      Helium.Top.TopSrc.Top.Util.Empty
-      Helium.Top.TopSrc.Top.Util.Option
-      Helium.Top.TopSrc.TopSolver
-      Helium.Top.TopSrc.Utils
       Helium.Utils.Logger
       Helium.Utils.Network
       Helium.Utils.OneLiner
