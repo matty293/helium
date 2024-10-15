@@ -19,7 +19,7 @@ import           Helium.Utils.QualifiedTypes
 import           Lvm.Core.Expr
 import qualified Lvm.Core.Type                 as Core
 import           Lvm.Common.Id
-import           Top.Types
+import           Helium.Top.Top.Types
 import           Helium.Utils.Utils
 
 nameAndTypes
