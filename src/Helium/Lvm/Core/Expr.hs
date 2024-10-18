@@ -5,15 +5,15 @@
 --------------------------------------------------------------------------------
 --  $Id: Expr.hs 291 2012-11-08 11:27:33Z heere112 $
 
-module Lvm.Core.Expr 
+module Helium.Lvm.Core.Expr 
    ( CoreModule, CoreDecl, Expr(..), Binds(..), Bind(..)
    , Alts, Alt(..), Pat(..), Literal(..), Con(..)
    ) where
 
-import Lvm.Common.Byte
-import Lvm.Common.Id
-import Lvm.Core.Module
-import Lvm.Core.PrettyId
+import Helium.Lvm.Common.Byte
+import Helium.Lvm.Common.Id
+import Helium.Lvm.Core.Module
+import Helium.Lvm.Core.PrettyId
 import Text.PrettyPrint.Leijen
 
 ----------------------------------------------------------------

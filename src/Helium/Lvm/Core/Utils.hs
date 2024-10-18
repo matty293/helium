@@ -5,15 +5,15 @@
 --------------------------------------------------------------------------------
 --  $Id: Data.hs 250 2012-08-22 10:59:40Z bastiaan $
 
-module Lvm.Core.Utils 
+module Helium.Lvm.Core.Utils 
    ( module Lvm.Core.Module
    , listFromBinds, unzipBinds, mapBinds, mapAccumBinds, zipBindsWith
    , mapAlts, zipAltsWith, mapExprWithSupply, mapAccum
    ) where
 
-import Lvm.Core.Expr
-import Lvm.Common.Id
-import Lvm.Core.Module
+import Helium.Lvm.Core.Expr
+import Helium.Lvm.Common.Id
+import Helium.Lvm.Core.Module
 
 ----------------------------------------------------------------
 -- Binders functions

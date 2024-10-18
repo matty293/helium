@@ -5,20 +5,20 @@
 --------------------------------------------------------------------------------
 --  $Id: ToAsm.hs 291 2012-11-08 11:27:33Z heere112 $
 
-module Lvm.Core.ToAsm (coreToAsm) where
+module Helium.Lvm.Core.ToAsm (coreToAsm) where
 
 import Control.Exception (assert)
-import Lvm.Common.Id
-import Lvm.Common.IdSet
-import Lvm.Core.Expr
-import Lvm.Core.Utils
-import qualified Lvm.Asm.Data as Asm
+import Helium.Lvm.Common.Id
+import Helium.Lvm.Common.IdSet
+import Helium.Lvm.Core.Expr
+import Helium.Lvm.Core.Utils
+import qualified Helium.Lvm.Asm.Data as Asm
 
-import Lvm.Core.NoShadow  (coreRename)    -- rename local variables
-import Lvm.Core.Saturate  (coreSaturate)  -- saturate constructors, instructions and externs
-import Lvm.Core.Normalize (coreNormalize) -- normalize core, ie. atomic arguments and lambda's at let bindings
-import Lvm.Core.LetSort   (coreLetSort)   -- find smallest recursive let binding groups
-import Lvm.Core.Lift      (coreLift)      -- lambda-lift, ie. make free variables arguments
+import Helium.Lvm.Core.NoShadow  (coreRename)    -- rename local variables
+import Helium.Lvm.Core.Saturate  (coreSaturate)  -- saturate constructors, instructions and externs
+import Helium.Lvm.Core.Normalize (coreNormalize) -- normalize core, ie. atomic arguments and lambda's at let bindings
+import Helium.Lvm.Core.LetSort   (coreLetSort)   -- find smallest recursive let binding groups
+import Helium.Lvm.Core.Lift      (coreLift)      -- lambda-lift, ie. make free variables arguments
 
 {---------------------------------------------------------------
   coreToAsm: translate Core expressions into Asm expressions

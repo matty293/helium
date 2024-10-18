@@ -4,13 +4,13 @@
 -- see the file "LICENSE.txt", which is included in the distribution.
 --------------------------------------------------------------------------------
 --  $Id: Inline.hs 291 2012-11-08 11:27:33Z heere112 $
-module Lvm.Asm.Inline (asmInline) where
+module Helium.Lvm.Asm.Inline (asmInline) where
 
 import Data.Maybe
-import Lvm.Asm.Data
-import Lvm.Asm.Occur ( asmOccur )
-import Lvm.Common.Id       
-import Lvm.Common.IdMap
+import Helium.Lvm.Asm.Data
+import Helium.Lvm.Asm.Occur ( asmOccur )
+import Helium.Lvm.Common.Id       
+import Helium.Lvm.Common.IdMap
 
 {---------------------------------------------------------------
   Inline environment maps identifiers to their definition

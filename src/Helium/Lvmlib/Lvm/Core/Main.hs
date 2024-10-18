@@ -8,24 +8,24 @@
 module Main (main) where
 
 import Control.Monad
-import Lvm.Common.Id
-import Lvm.Path
+import Helium.Lvmlib.Lvm.Common.Id
+import Helium.Lvmlib.Lvm.Path
 import System.Console.GetOpt
 import System.Environment
 import System.Exit
 import System.FilePath
 import Text.PrettyPrint.Leijen
 
-import Lvm.Asm.Inline          (asmInline)         -- optimize Asm (ie. local inlining)
-import Lvm.Asm.ToLvm           (asmToLvm)          -- translate Asm to Lvm instructions
-import Lvm.Core.Module         (modulePublic)      -- imports
-import Lvm.Core.Parsing.Layout (layout)            -- apply layout rule
-import Lvm.Core.Parsing.Lexer  (lexer)             -- lexical tokens
-import Lvm.Core.Parsing.Parser (parseModuleExport) -- parse text into Core
-import Lvm.Core.RemoveDead     (coreRemoveDead)    -- remove dead declarations
-import Lvm.Core.ToAsm          (coreToAsm)         -- enriched lambda expressions (Core) to Asm
-import Lvm.Import              (lvmImport)         -- resolve import declarations
-import Lvm.Write               (lvmWriteFile)      -- write a binary Lvm file
+import Helium.Lvmlib.Lvm.Asm.Inline          (asmInline)         -- optimize Asm (ie. local inlining)
+import Helium.Lvmlib.Lvm.Asm.ToLvm           (asmToLvm)          -- translate Asm to Lvm instructions
+import Helium.Lvmlib.Lvm.Core.Module         (modulePublic)      -- imports
+import Helium.Lvmlib.Lvm.Core.Parsing.Layout (layout)            -- apply layout rule
+import Helium.Lvmlib.Lvm.Core.Parsing.Lexer  (lexer)             -- lexical tokens
+import Helium.Lvmlib.Lvm.Core.Parsing.Parser (parseModuleExport) -- parse text into Core
+import Helium.Lvmlib.Lvm.Core.RemoveDead     (coreRemoveDead)    -- remove dead declarations
+import Helium.Lvmlib.Lvm.Core.ToAsm          (coreToAsm)         -- enriched lambda expressions (Core) to Asm
+import Helium.Lvmlib.Lvm.Import              (lvmImport)         -- resolve import declarations
+import Helium.Lvmlib.Lvm.Write               (lvmWriteFile)      -- write a binary Lvm file
 
 ----------------------------------------------------------------
 --

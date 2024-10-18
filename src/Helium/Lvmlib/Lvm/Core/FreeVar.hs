@@ -7,10 +7,10 @@
 ----------------------------------------------------------------
 -- Calculate free variables
 ----------------------------------------------------------------
-module Lvm.Core.FreeVar (FreeVar(..), Binder(..)) where
+module Helium.Lvmlib.Lvm.Core.FreeVar (FreeVar(..), Binder(..)) where
 
-import Lvm.Common.IdSet
-import Lvm.Core.Expr
+import Helium.Lvmlib.Lvm.Common.IdSet
+import Helium.Lvmlib.Lvm.Core.Expr
 
 class FreeVar a where
    freeVar :: a -> IdSet

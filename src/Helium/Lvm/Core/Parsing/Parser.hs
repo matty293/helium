@@ -5,17 +5,17 @@
 --------------------------------------------------------------------------------
 --  $Id: Parser.hs 291 2012-11-08 11:27:33Z heere112 $
 
-module Lvm.Core.Parsing.Parser (parseModuleExport, parseModule) where
+module Helium.Lvm.Core.Parsing.Parser (parseModuleExport, parseModule) where
 
 import Control.Monad
 import Data.List
-import Lvm.Common.Byte
-import Lvm.Common.Id
-import Lvm.Common.IdSet
-import Lvm.Core.Expr
-import Lvm.Core.Parsing.Token (Token, Lexeme(..))
-import Lvm.Core.Type
-import Lvm.Core.Utils
+import Helium.Lvm.Common.Byte
+import Helium.Lvm.Common.Id
+import Helium.Lvm.Common.IdSet
+import Helium.Lvm.Core.Expr
+import Helium.Lvm.Core.Parsing.Token (Token, Lexeme(..))
+import Helium.Lvm.Core.Type
+import Helium.Lvm.Core.Utils
 import Prelude hiding (lex)
 import Text.ParserCombinators.Parsec hiding (satisfy)
 

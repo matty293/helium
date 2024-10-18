@@ -5,13 +5,13 @@
 --------------------------------------------------------------------------------
 --  $Id: Resolve.hs 291 2012-11-08 11:27:33Z heere112 $
 
-module Lvm.Instr.Resolve (instrResolve) where
+module Helium.Lvm.Instr.Resolve (instrResolve) where
 
 import Control.Exception (assert)
 import Data.Maybe
-import Lvm.Common.Id
-import Lvm.Common.IdMap
-import Lvm.Instr.Data
+import Helium.Lvm.Common.Id
+import Helium.Lvm.Common.IdMap
+import Helium.Lvm.Instr.Data
 
 {---------------------------------------------------------------
   resolve monad

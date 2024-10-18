@@ -12,14 +12,14 @@
 -- After this pass, no variables shadow each other and let-bound variables
 -- are globally unique.
 ----------------------------------------------------------------
-module Lvm.Core.NoShadow (coreNoShadow, coreRename) where
+module Helium.Lvmlib.Lvm.Core.NoShadow (coreNoShadow, coreRename) where
 
 import Data.Maybe
-import Lvm.Common.Id
-import Lvm.Common.IdMap
-import Lvm.Common.IdSet 
-import Lvm.Core.Expr
-import Lvm.Core.Utils
+import Helium.Lvmlib.Lvm.Common.Id
+import Helium.Lvmlib.Lvm.Common.IdMap
+import Helium.Lvmlib.Lvm.Common.IdSet 
+import Helium.Lvmlib.Lvm.Core.Expr
+import Helium.Lvmlib.Lvm.Core.Utils
 
 ----------------------------------------------------------------
 -- Environment: name supply, id's in scope & renamed identifiers

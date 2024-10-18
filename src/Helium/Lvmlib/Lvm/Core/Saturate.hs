@@ -9,14 +9,14 @@
 -- saturate all calls to externals, instructions and constructors.
 -- pre: [coreNoShadow]
 ----------------------------------------------------------------
-module Lvm.Core.Saturate (coreSaturate) where
+module Helium.Lvmlib.Lvm.Core.Saturate (coreSaturate) where
 
 import Data.List
 import Data.Maybe
-import Lvm.Common.Id    
-import Lvm.Common.IdMap
-import Lvm.Core.Expr
-import Lvm.Core.Utils
+import Helium.Lvmlib.Lvm.Common.Id    
+import Helium.Lvmlib.Lvm.Common.IdMap
+import Helium.Lvmlib.Lvm.Core.Expr
+import Helium.Lvmlib.Lvm.Core.Utils
 
 ----------------------------------------------------------------
 -- Environment: a name supply and a map from id to its arity

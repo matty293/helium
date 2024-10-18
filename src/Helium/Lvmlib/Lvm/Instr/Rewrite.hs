@@ -5,9 +5,9 @@
 --------------------------------------------------------------------------------
 --  $Id: Rewrite.hs 291 2012-11-08 11:27:33Z heere112 $
 
-module Lvm.Instr.Rewrite (instrRewrite) where
+module Helium.Lvmlib.Lvm.Instr.Rewrite (instrRewrite) where
 
-import Lvm.Instr.Data
+import Helium.Lvmlib.Lvm.Instr.Data
 
 {---------------------------------------------------------------
   debugging

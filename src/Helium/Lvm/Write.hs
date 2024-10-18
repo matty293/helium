@@ -5,16 +5,16 @@
 --------------------------------------------------------------------------------
 --  $Id: Write.hs 291 2012-11-08 11:27:33Z heere112 $
 
-module Lvm.Write (lvmWriteFile, lvmToBytes) where
+module Helium.Lvm.Write (lvmWriteFile, lvmToBytes) where
 
 import qualified Control.Exception as CE (assert, catch, IOException) 
 import Control.Monad
 import Data.Maybe
-import Lvm.Common.Byte
-import Lvm.Common.Id 
-import Lvm.Common.IdMap
-import Lvm.Data
-import Lvm.Instr.Data
+import Helium.Lvm.Common.Byte
+import Helium.Lvm.Common.Id 
+import Helium.Lvm.Common.IdMap
+import Helium.Lvm.Data
+import Helium.Lvm.Instr.Data
 import System.Exit 
 
 {--------------------------------------------------------------

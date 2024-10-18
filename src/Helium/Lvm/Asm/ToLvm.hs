@@ -5,19 +5,19 @@
 --------------------------------------------------------------------------------
 --  $Id: ToLvm.hs 291 2012-11-08 11:27:33Z heere112 $
 
-module Lvm.Asm.ToLvm (asmToLvm)  where
+module Helium.Lvm.Asm.ToLvm (asmToLvm)  where
 
 import Control.Exception ( assert )
 import Data.List 
-import Lvm.Asm.Data
-import Lvm.Common.Id
-import Lvm.Common.IdMap 
-import Lvm.Data
-import Lvm.Instr.Data hiding  ( Con(..), Alt(..), Pat(..) )
-import Lvm.Instr.Resolve   (instrResolve)
-import Lvm.Instr.Rewrite   (instrRewrite)
-import qualified Lvm.Asm.Data as Asm
-import qualified Lvm.Instr.Data as Instr
+import Helium.Lvm.Asm.Data
+import Helium.Lvm.Common.Id
+import Helium.Lvm.Common.IdMap 
+import Helium.Lvm.Data
+import Helium.Lvm.Instr.Data hiding  ( Con(..), Alt(..), Pat(..) )
+import Helium.Lvm.Instr.Resolve   (instrResolve)
+import Helium.Lvm.Instr.Rewrite   (instrRewrite)
+import qualified Helium.Lvm.Asm.Data as Asm
+import qualified Helium.Lvm.Instr.Data as Instr
 
 {---------------------------------------------------------------
   asmToLvm: generate instructions from Asm expressions

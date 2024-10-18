@@ -5,7 +5,7 @@
 --------------------------------------------------------------------------------
 --  $Id: Lexer.hs 269 2012-08-31 15:16:49Z bastiaan $
 
-module Lvm.Core.Parsing.Token 
+module Helium.Lvmlib.Lvm.Core.Parsing.Token 
    ( Token, Lexeme(..), Pos, incpos, newpos
    ) where
 

@@ -5,15 +5,15 @@
 --------------------------------------------------------------------------------
 --  $Id: Data.hs 291 2012-11-08 11:27:33Z heere112 $
 
-module Lvm.Asm.Data 
+module Helium.Lvmlib.Lvm.Asm.Data 
    ( AsmModule, AsmDecl
    , Top(..), Atom, Expr(..), Note(..), Occur(..)
    , Lit(..), Alt(..), Pat(..), Con(..)
    ) where
 
-import Lvm.Common.Byte
-import Lvm.Common.Id
-import Lvm.Core.Module
+import Helium.Lvmlib.Lvm.Common.Byte
+import Helium.Lvmlib.Lvm.Common.Id
+import Helium.Lvmlib.Lvm.Core.Module
 import Text.PrettyPrint.Leijen
 
 {---------------------------------------------------------------

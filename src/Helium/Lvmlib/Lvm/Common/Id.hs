@@ -5,7 +5,7 @@
 --------------------------------------------------------------------------------
 --  $Id: Id.hs 291 2012-11-08 11:27:33Z heere112 $
 
-module Lvm.Common.Id 
+module Helium.Lvmlib.Lvm.Common.Id 
    ( Id
    -- essential used in "asm" and "lvm"
    , stringFromId, idFromString, idFromStringEx, dummyId

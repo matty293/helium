@@ -4,11 +4,11 @@
 -- see the file "LICENSE.txt", which is included in the distribution.
 --------------------------------------------------------------------------------
 --  $Id: Occur.hs 291 2012-11-08 11:27:33Z heere112 $
-module Lvm.Asm.Occur (asmOccur) where
+module Helium.Lvm.Asm.Occur (asmOccur) where
 
-import Lvm.Asm.Data
-import Lvm.Common.Id 
-import Lvm.Common.IdMap
+import Helium.Lvm.Asm.Data
+import Helium.Lvm.Common.Id 
+import Helium.Lvm.Common.IdMap
 
 {---------------------------------------------------------------
   Occ: maps identifiers to the number of syntactic

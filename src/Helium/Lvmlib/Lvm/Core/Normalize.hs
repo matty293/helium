@@ -20,12 +20,12 @@
 --
 -- pre: [coreNoShadow, coreSaturate]
 ----------------------------------------------------------------
-module Lvm.Core.Normalize (coreNormalize) where
+module Helium.Lvmlib.Lvm.Core.Normalize (coreNormalize) where
 
-import Lvm.Common.Id
-import Lvm.Common.IdSet
-import Lvm.Core.Expr
-import Lvm.Core.Utils
+import Helium.Lvmlib.Lvm.Common.Id
+import Helium.Lvmlib.Lvm.Common.IdSet
+import Helium.Lvmlib.Lvm.Core.Expr
+import Helium.Lvmlib.Lvm.Core.Utils
 
 ----------------------------------------------------------------
 -- Environment: the name supply

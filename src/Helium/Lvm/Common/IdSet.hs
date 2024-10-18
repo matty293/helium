@@ -7,7 +7,7 @@
 
 -- this module is exotic, only used by the core compiler
 -- but it works with any IdMap
-module Lvm.Common.IdSet
+module Helium.Lvm.Common.IdSet
    ( IdSet, Id
    , emptySet, singleSet, elemSet, filterSet, foldSet
    , insertSet, deleteSet, unionSet, unionSets, diffSet
@@ -16,7 +16,7 @@ module Lvm.Common.IdSet
 
 import Data.IntSet (IntSet)
 import Data.List (sort)
-import Lvm.Common.Id
+import Helium.Lvm.Common.Id
 import qualified Data.IntSet as IntSet
 
 ----------------------------------------------------------------

@@ -5,7 +5,7 @@
 --------------------------------------------------------------------------------
 --  $Id: Module.hs 291 2012-11-08 11:27:33Z heere112 $
 
-module Lvm.Core.Module
+module Helium.Lvm.Core.Module
    ( Module(..), Decl(..), Custom(..), DeclKind(..)
    , Arity, Tag, Access(..), ExternName(..), CallConv(..), LinkConv(..)
    , globalNames, externNames, filterPublic, mapDecls
@@ -16,11 +16,11 @@ module Lvm.Core.Module
    , public, private
    ) where
 
-import Lvm.Common.Byte
-import Lvm.Common.Id  
-import Lvm.Common.IdSet  
-import Lvm.Core.PrettyId
-import Lvm.Instr.Data
+import Helium.Lvm.Common.Byte
+import Helium.Lvm.Common.Id  
+import Helium.Lvm.Common.IdSet  
+import Helium.Lvm.Core.PrettyId
+import Helium.Lvm.Instr.Data
 import Text.PrettyPrint.Leijen
 
 {---------------------------------------------------------------

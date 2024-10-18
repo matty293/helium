@@ -5,16 +5,16 @@
 --------------------------------------------------------------------------------
 --  $Id: Read.hs 291 2012-11-08 11:27:33Z heere112 $
 
-module Lvm.Read (lvmReadFile, lvmRead) where
+module Helium.Lvmlib.Lvm.Read (lvmReadFile, lvmRead) where
 
 import Control.Monad
 import Data.Array
-import Lvm.Common.Byte hiding (readByteList)
-import Lvm.Common.Id
-import Lvm.Data
-import Lvm.Instr.Data
+import Helium.Lvmlib.Lvm.Common.Byte hiding (readByteList)
+import Helium.Lvmlib.Lvm.Common.Id
+import Helium.Lvmlib.Lvm.Data
+import Helium.Lvmlib.Lvm.Instr.Data
 import Prelude hiding (Read)
-import qualified Lvm.Common.Byte as Byte
+import qualified Helium.Lvmlib.Lvm.Common.Byte as Byte
 
 {--------------------------------------------------------------
   Magic numbers

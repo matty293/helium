@@ -5,14 +5,14 @@
 --------------------------------------------------------------------------------
 --  $Id: Data.hs 291 2012-11-08 11:27:33Z heere112 $
 
-module Lvm.Data
-   ( module Lvm.Core.Module, LvmModule, LvmDecl
+module Helium.Lvmlib.Lvm.Data
+   ( module Helium.Lvmlib.Lvm.Core.Module, LvmModule, LvmDecl
      -- constants
    , recHeader,recFooter           
    ) where
 
-import Lvm.Core.Module
-import Lvm.Instr.Data   ( Instr )
+import Helium.Lvmlib.Lvm.Core.Module
+import Helium.Lvmlib.Lvm.Instr.Data   ( Instr )
 
 {--------------------------------------------------------------
   An LVM module

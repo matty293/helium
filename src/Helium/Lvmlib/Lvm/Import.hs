@@ -5,15 +5,15 @@
 --------------------------------------------------------------------------------
 --  $Id: Import.hs 291 2012-11-08 11:27:33Z heere112 $
 
-module Lvm.Import (lvmImport, lvmImportDecls) where
+module Helium.Lvmlib.Lvm.Import (lvmImport, lvmImportDecls) where
 
 import Control.Monad
 import Data.List 
-import Lvm.Common.Id
-import Lvm.Common.IdMap
-import Lvm.Data
-import Lvm.Read  (lvmReadFile)
-import qualified Lvm.Core.Module as Module
+import Helium.Lvmlib.Lvm.Common.Id
+import Helium.Lvmlib.Lvm.Common.IdMap
+import Helium.Lvmlib.Lvm.Data
+import Helium.Lvmlib.Lvm.Read  (lvmReadFile)
+import qualified Helium.Lvmlib.Lvm.Core.Module as Module
 
 {--------------------------------------------------------------
   lvmImport: replace all import declarations with

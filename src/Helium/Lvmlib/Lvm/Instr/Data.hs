@@ -5,7 +5,7 @@
 --------------------------------------------------------------------------------
 --  $Id: Data.hs 291 2012-11-08 11:27:33Z heere112 $
 
-module Lvm.Instr.Data 
+module Helium.Lvmlib.Lvm.Instr.Data 
    ( Instr(..), Var(..), Con(..), Global(..), Alt(..), Pat(..)
    , Offset, Depth, Index, Tag, Arity
    , opcodeFromInstr, instrFromOpcode, instrFromName, nameFromInstr
@@ -14,8 +14,8 @@ module Lvm.Instr.Data
 
 import Data.Char
 import Data.Maybe
-import Lvm.Common.Byte
-import Lvm.Common.Id
+import Helium.Lvmlib.Lvm.Common.Byte
+import Helium.Lvmlib.Lvm.Common.Id
 import Text.PrettyPrint.Leijen
 
 ----------------------------------------------------------------

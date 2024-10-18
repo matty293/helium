@@ -4,7 +4,7 @@
 -- see the file "LICENSE.txt", which is included in the distribution.
 --------------------------------------------------------------------------------
 --  $Id: Byte.hs 291 2012-11-08 11:27:33Z heere112 $
-module Lvm.Common.Byte
+module Helium.Lvm.Common.Byte
    ( Byte, Bytes 
    , Monoid(..), unit, isEmpty
    , bytesLength, writeBytes, bytesFromList, listFromBytes

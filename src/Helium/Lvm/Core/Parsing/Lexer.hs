@@ -5,13 +5,13 @@
 --------------------------------------------------------------------------------
 --  $Id: Lexer.hs 291 2012-11-08 11:27:33Z heere112 $
 
-module Lvm.Core.Parsing.Lexer (lexer) where
+module Helium.Lvm.Core.Parsing.Lexer (lexer) where
 
 import Control.Monad
 import Data.Char hiding (isSymbol, isLetter)
 import Data.List
 import Data.Maybe
-import Lvm.Core.Parsing.Token
+import Helium.Lvm.Core.Parsing.Token 
 
 type Lexer  = Pos -> String -> [Token]
 type Lexer5 = Pos -> String -> ([Token] -> [Token], Double, Pos, String)

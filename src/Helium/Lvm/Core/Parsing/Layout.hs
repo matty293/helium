@@ -5,9 +5,9 @@
 --------------------------------------------------------------------------------
 --  $Id: Lexer.hs 269 2012-08-31 15:16:49Z bastiaan $
 
-module Lvm.Core.Parsing.Layout (layout) where
+module Helium.Lvm.Core.Parsing.Layout (layout) where
 
-import Lvm.Core.Parsing.Token
+import Helium.Lvm.Core.Parsing.Token
 
 -----------------------------------------------------------
 -- The layout rule

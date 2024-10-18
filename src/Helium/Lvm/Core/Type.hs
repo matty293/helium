@@ -5,13 +5,13 @@
 --------------------------------------------------------------------------------
 --  $Id: Data.hs 250 2012-08-22 10:59:40Z bastiaan $
 
-module Lvm.Core.Type 
+module Helium.Lvm.Core.Type 
    ( Type(..), Kind(..)
    , addForall, arityFromType
    ) where
 
-import Lvm.Common.Id
-import Lvm.Common.IdSet
+import Helium.Lvm.Common.Id
+import Helium.Lvm.Common.IdSet
 import Text.PrettyPrint.Leijen
 
 ----------------------------------------------------------------

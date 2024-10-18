@@ -9,14 +9,14 @@
 -- Determine which bindings are really recursive and which are not.
 -- maintains free variable information & normalised structure
 ----------------------------------------------------------------
-module Lvm.Core.LetSort (coreLetSort) where
+module Helium.Lvmlib.Lvm.Core.LetSort (coreLetSort) where
 
 import Data.Graph hiding (topSort)
 import Data.Tree
-import Lvm.Common.IdSet
-import Lvm.Core.Expr
-import Lvm.Core.FreeVar
-import Lvm.Core.Utils
+import Helium.Lvmlib.Lvm.Common.IdSet
+import Helium.Lvmlib.Lvm.Core.Expr
+import Helium.Lvmlib.Lvm.Core.FreeVar
+import Helium.Lvmlib.Lvm.Core.Utils
 import Data.Maybe
 import Control.Arrow (second)
 

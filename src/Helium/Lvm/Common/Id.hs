@@ -5,7 +5,7 @@
 --------------------------------------------------------------------------------
 --  $Id: Id.hs 291 2012-11-08 11:27:33Z heere112 $
 
-module Lvm.Common.Id 
+module Helium.Lvm.Common.Id 
    ( Id
    -- essential used in "asm" and "lvm"
    , stringFromId, idFromString, idFromStringEx, dummyId
@@ -14,7 +14,7 @@ module Lvm.Common.Id
    , splitNameSupply, splitNameSupplies, freshId, mapWithSupply
    -- very exotic: only used internally for IdMap's that use IntMap
    , intFromId, idFromInt
-   ) where
+   ) where 
 
 import Data.IORef
 import Data.Int (Int32)

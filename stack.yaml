@@ -15,17 +15,18 @@ extra-deps:
   - unix-2.8.5.1
   - binary-0.8.9.2
   - filepath-1.4.300.2
+  - array-0.5.4.0
 
   # If local development on Top is required, this entry can be replaced with the relative path of the directory the Top
   # repository is located, such as `../Top`
-  - github: Helium4Haskell/Top
-    commit: 0a96929af082e53c1921a8613a352c08ae426fff
+  #- github: Helium4Haskell/Top
+  #  commit: 0a96929af082e53c1921a8613a352c08ae426fff
   #- ../Top
 
-  - github: Helium4Haskell/lvm
-    commit: a871b0f39a140c798399b71a9b115db0a16f5526
-    subdirs: 
-      - src/lib
+  #- github: Helium4Haskell/lvm
+  #  commit: a871b0f39a140c798399b71a9b115db0a16f5526
+  #  subdirs: 
+  #    - src/lib
   #- ../lvm/src/lib
 
   - github: matty293/llvm-hs-pure-9.0.1

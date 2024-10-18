@@ -8,24 +8,24 @@
 module Main (main) where
 
 import Control.Monad
-import Lvm.Common.Id
-import Lvm.Path
+import Helium.Lvm.Common.Id
+import Helium.Lvm.Path
 import System.Console.GetOpt
 import System.Environment
 import System.Exit
 import System.FilePath
 import Text.PrettyPrint.Leijen
 
-import Lvm.Asm.Inline          (asmInline)         -- optimize Asm (ie. local inlining)
-import Lvm.Asm.ToLvm           (asmToLvm)          -- translate Asm to Lvm instructions
-import Lvm.Core.Module         (modulePublic)      -- imports
-import Lvm.Core.Parsing.Layout (layout)            -- apply layout rule
-import Lvm.Core.Parsing.Lexer  (lexer)             -- lexical tokens
-import Lvm.Core.Parsing.Parser (parseModuleExport) -- parse text into Core
-import Lvm.Core.RemoveDead     (coreRemoveDead)    -- remove dead declarations
-import Lvm.Core.ToAsm          (coreToAsm)         -- enriched lambda expressions (Core) to Asm
-import Lvm.Import              (lvmImport)         -- resolve import declarations
-import Lvm.Write               (lvmWriteFile)      -- write a binary Lvm file
+import Helium.Lvm.Asm.Inline          (asmInline)         -- optimize Asm (ie. local inlining)
+import Helium.Lvm.Asm.ToLvm           (asmToLvm)          -- translate Asm to Lvm instructions
+import Helium.Lvm.Core.Module         (modulePublic)      -- imports
+import Helium.Lvm.Core.Parsing.Layout (layout)            -- apply layout rule
+import Helium.Lvm.Core.Parsing.Lexer  (lexer)             -- lexical tokens
+import Helium.Lvm.Core.Parsing.Parser (parseModuleExport) -- parse text into Core
+import Helium.Lvm.Core.RemoveDead     (coreRemoveDead)    -- remove dead declarations
+import Helium.Lvm.Core.ToAsm          (coreToAsm)         -- enriched lambda expressions (Core) to Asm
+import Helium.Lvm.Import              (lvmImport)         -- resolve import declarations
+import Helium.Lvm.Write               (lvmWriteFile)      -- write a binary Lvm file
 
 ----------------------------------------------------------------
 --

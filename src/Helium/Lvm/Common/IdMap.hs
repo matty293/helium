@@ -5,14 +5,14 @@
 --------------------------------------------------------------------------------
 --  $Id: IdMap.hs 291 2012-11-08 11:27:33Z heere112 $
 
-module Lvm.Common.IdMap
+module Helium.Lvm.Common.IdMap
    ( IdMap, Id
      -- essential: used by "Asm" and "Lvm"
    , emptyMap, singleMap, elemMap, mapMap, insertMap, extendMap
    , insertMapWith, lookupMap, findMap, filterMap, listFromMap
    , mapMapWithId, unionMap, unionMapWith, updateMap
    -- exotic: used by core compiler
-   , Lvm.Common.IdMap.foldMap, deleteMap, filterMapWithId, mapFromList
+   , Helium.Lvm.Common.IdMap.foldMap, deleteMap, filterMapWithId, mapFromList
    , unionMaps, diffMap, unionlMap, foldMapWithId
    , isEmptyMap, sizeMap
    ) where
@@ -20,7 +20,7 @@ module Lvm.Common.IdMap
 import Data.List
 import Data.Maybe
 import qualified Data.IntMap as IntMap
-import Lvm.Common.Id
+import Helium.Lvm.Common.Id
 import Control.Arrow (first)
 
 ----------------------------------------------------------------

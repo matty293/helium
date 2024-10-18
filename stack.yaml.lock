@@ -75,29 +75,12 @@ packages:
   original:
     hackage: filepath-1.4.300.2
 - completed:
-    name: Top
+    hackage: array-0.5.4.0@sha256:4ab91ef6388db19e62fea4ed7bf3bb39bae5c3e3d2ac73a7feb278d05c35db78,1660
     pantry-tree:
-      sha256: 400e41873d47346c3edcaacb08bb6ea14b4e2389fc8fe9b752b752ca4e0b82f5
-      size: 4631
-    sha256: 8fbc26b0c700ecd96d64e2a7714cc9f88f3ba988b19c231452b6ba7233e34559
-    size: 74181
-    url: https://github.com/Helium4Haskell/Top/archive/0a96929af082e53c1921a8613a352c08ae426fff.tar.gz
-    version: 1.9.1
+      sha256: 25fb3fcc19c38f11e8d94ce9f6305bba0227c78915458d684ff471321f63294a
+      size: 1135
   original:
-    url: https://github.com/Helium4Haskell/Top/archive/0a96929af082e53c1921a8613a352c08ae426fff.tar.gz
-- completed:
-    name: lvmlib
-    pantry-tree:
-      sha256: dc38b907c5161e3b8d1727f0d5270469dea51d5130bc7a80191add97706ad850
-      size: 1785
-    sha256: 169129905e5ac8b5fe0aee1296363c3b11598b876f705d5c8185c63373a3a681
-    size: 274804
-    subdir: src/lib
-    url: https://github.com/Helium4Haskell/lvm/archive/a871b0f39a140c798399b71a9b115db0a16f5526.tar.gz
-    version: 1.9.1
-  original:
-    subdir: src/lib
-    url: https://github.com/Helium4Haskell/lvm/archive/a871b0f39a140c798399b71a9b115db0a16f5526.tar.gz
+    hackage: array-0.5.4.0
 - completed:
     name: llvm-hs-pure
     pantry-tree:

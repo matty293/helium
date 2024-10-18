@@ -5,14 +5,14 @@
 --------------------------------------------------------------------------------
 --  $Id: PrettyId.hs 291 2012-11-08 11:27:33Z heere112 $
 
-module Lvm.Core.PrettyId 
+module Helium.Lvmlib.Lvm.Core.PrettyId 
    ( ppId, ppVarId, ppConId, ppQualId
    , ppQualCon, ppString 
    ) where
 
 import Data.Char
-import Lvm.Common.Id
-import Lvm.Common.IdSet
+import Helium.Lvmlib.Lvm.Common.Id
+import Helium.Lvmlib.Lvm.Common.IdSet
 import Text.PrettyPrint.Leijen
 
 ppId :: Id -> Doc

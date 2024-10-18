@@ -10,16 +10,16 @@
 -- After this pass, each binding has either no free variables or no arguments.
 -- maintains free variable information & normalised structure
 ----------------------------------------------------------------
-module Lvm.Core.Lift (coreLift) where
+module Helium.Lvmlib.Lvm.Core.Lift (coreLift) where
 
 import Data.List
 import Data.Maybe
-import Lvm.Common.Id     
-import Lvm.Common.IdMap   
-import Lvm.Common.IdSet
-import Lvm.Core.Expr
-import Lvm.Core.FreeVar
-import Lvm.Core.Utils
+import Helium.Lvmlib.Lvm.Common.Id     
+import Helium.Lvmlib.Lvm.Common.IdMap   
+import Helium.Lvmlib.Lvm.Common.IdSet
+import Helium.Lvmlib.Lvm.Core.Expr
+import Helium.Lvmlib.Lvm.Core.FreeVar
+import Helium.Lvmlib.Lvm.Core.Utils
 
 ----------------------------------------------------------------
 -- The environment maps variables to variables that should
