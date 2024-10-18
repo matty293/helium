@@ -8,14 +8,14 @@
 --   Portability  :  non-portable (requires extensions)
 -----------------------------------------------------------------------------
 
-module Top.Implementation.General 
-   ( module Top.Implementation.General
-   , module Top.Util.Empty
+module Helium.Top.Top.Implementation.General 
+   ( module Helium.Top.Top.Implementation.General
+   , module Helium.Top.Top.Util.Empty
    ) where
 
-import Top.Util.Embedding
-import Top.Util.Empty
-import Top.Monad.Select
+import Helium.Top.Top.Util.Embedding
+import Helium.Top.Top.Util.Empty
+import Helium.Top.Top.Monad.Select
 
 class (Show s, Empty s) => SolveState s where
    showState     :: s -> String

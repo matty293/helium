@@ -10,7 +10,7 @@
 --
 -----------------------------------------------------------------------------
 
-module Top.Types.Primitive where
+module Helium.Top.Top.Types.Primitive where
 
 import Data.List (union, isPrefixOf)
 import Data.Char (isDigit, isSpace)

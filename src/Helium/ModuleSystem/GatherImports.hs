@@ -9,16 +9,16 @@
 module Helium.ModuleSystem.GatherImports(chaseImports, ModuleDecls, ImportList, addImplicitImports) where
 
 --import Helium.Main.CompileUtils
-import qualified Lvm.Core.Expr as Core
-import qualified Lvm.Core.Utils as Core
-import Lvm.Common.Id(stringFromId, idFromString, dummyId, Id)
-import Lvm.Common.IdSet(IdSet, elemSet)
+import qualified Helium.Lvmlib.Lvm.Core.Expr as Core
+import qualified Helium.Lvmlib.Lvm.Core.Utils as Core
+import Helium.Lvmlib.Lvm.Common.Id(stringFromId, idFromString, dummyId, Id)
+import Helium.Lvmlib.Lvm.Common.IdSet(IdSet, elemSet)
 import Helium.Syntax.UHA_Syntax
 import Helium.Syntax.UHA_Utils
 import Helium.Syntax.UHA_Range(noRange)
 import Helium.Utils.Utils (internalError)
-import Lvm.Path(searchPath)
-import Lvm.Import(lvmImportDecls)
+import Helium.Lvmlib.Lvm.Path(searchPath)
+import Helium.Lvmlib.Lvm.Import(lvmImportDecls)
 import qualified Helium.ModuleSystem.ExtractImportDecls as EID
 import Data.List(isPrefixOf, intercalate)
 

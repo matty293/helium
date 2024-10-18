@@ -7,16 +7,16 @@
 --   Portability  :  non-portable (requires extensions)
 -----------------------------------------------------------------------------
 
-module Top.Constraint.Polymorphism where
+module Helium.Top.Top.Constraint.Polymorphism where
 
-import Top.Types hiding (contextReduction)
-import Top.Constraint
-import Top.Constraint.Equality ( (.==.) )
-import Top.Interface.Basic
-import Top.Interface.TypeInference
-import Top.Interface.Substitution
-import Top.Interface.Qualification
-import Top.Constraint.Information
+import Helium.Top.Top.Types hiding (contextReduction)
+import Helium.Top.Top.Constraint
+import Helium.Top.Top.Constraint.Equality ( (.==.) )
+import Helium.Top.Top.Interface.Basic
+import Helium.Top.Top.Interface.TypeInference
+import Helium.Top.Top.Interface.Substitution
+import Helium.Top.Top.Interface.Qualification
+import Helium.Top.Top.Constraint.Information
 import Data.List (union, intercalate)
 
 data PolymorphismConstraint info

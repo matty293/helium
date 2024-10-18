@@ -12,15 +12,15 @@
 --
 -----------------------------------------------------------------------------
 
-module Top.Types.Schemes where
+module Helium.Top.Top.Types.Schemes where
 
-import Top.Types.Primitive
-import Top.Types.Quantification
-import Top.Types.Qualification
-import Top.Types.Substitution
-import Top.Types.Synonym
-import Top.Types.Unification
-import Top.Types.Classes
+import Helium.Top.Top.Types.Primitive
+import Helium.Top.Top.Types.Quantification
+import Helium.Top.Top.Types.Qualification
+import Helium.Top.Top.Types.Substitution
+import Helium.Top.Top.Types.Synonym
+import Helium.Top.Top.Types.Unification
+import Helium.Top.Top.Types.Classes
 import Data.List
 import qualified Data.Map as M
 

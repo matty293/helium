@@ -6,11 +6,11 @@
 --   Portability  :  portable
 -----------------------------------------------------------------------------
 
-module Top.Implementation.TypeGraph.Basics where
+module Helium.Top.Top.Implementation.TypeGraph.Basics where
 
-import Top.Implementation.TypeGraph.Path
-import Top.Types
-import Utils (internalError)
+import Helium.Top.Top.Implementation.TypeGraph.Path
+import Helium.Top.Top.Types
+import Helium.Top.Utils (internalError)
 -- import Data.Maybe
 import Data.List (sort, partition, intercalate)
 

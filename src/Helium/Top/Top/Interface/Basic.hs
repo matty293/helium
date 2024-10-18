@@ -8,13 +8,13 @@
 --   Portability  :  non-portable (requires extensions)
 -----------------------------------------------------------------------------
 
-module Top.Interface.Basic where
+module Helium.Top.Top.Interface.Basic where
 
-import Top.Constraint
-import Top.Util.Option
-import Top.Monad.Select
-import Top.Monad.StateFix
-import Utils (internalError)
+import Helium.Top.Top.Constraint
+import Helium.Top.Top.Util.Option
+import Helium.Top.Top.Monad.Select
+import Helium.Top.Top.Monad.StateFix
+import Helium.Top.Utils (internalError)
 import Control.Monad (liftM, when, unless, filterM)
 
 ------------------------------------------------------------------------

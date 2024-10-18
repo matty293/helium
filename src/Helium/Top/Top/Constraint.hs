@@ -12,9 +12,9 @@
 --
 -----------------------------------------------------------------------------
 
-module Top.Constraint where
+module Helium.Top.Top.Constraint where
 
-import Top.Types (Substitutable(..))
+import Helium.Top.Top.Types (Substitutable(..))
 
 type Constraints m = [Constraint m]
 data Constraint  m = 

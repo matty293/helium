@@ -7,19 +7,19 @@
 --   Portability  :  non-portable (requires extensions)
 -----------------------------------------------------------------------------
 
-module Top.Solver.TypeGraph where
+module Helium.Top.Top.Solver.TypeGraph where
 
-import Top.Solver
-import Top.Constraint
-import Top.Constraint.Information
-import Top.Interface.Substitution()
-import Top.Implementation.General
-import Top.Implementation.Basic
-import Top.Implementation.Overloading
-import Top.Implementation.TypeInference
-import Top.Implementation.TypeGraphSubstitution
-import Top.Implementation.TypeGraph.Heuristic
-import Top.Monad.Select
+import Helium.Top.Top.Solver
+import Helium.Top.Top.Constraint
+import Helium.Top.Top.Constraint.Information
+import Helium.Top.Top.Interface.Substitution()
+import Helium.Top.Top.Implementation.General
+import Helium.Top.Top.Implementation.Basic
+import Helium.Top.Top.Implementation.Overloading
+import Helium.Top.Top.Implementation.TypeInference
+import Helium.Top.Top.Implementation.TypeGraphSubstitution
+import Helium.Top.Top.Implementation.TypeGraph.Heuristic
+import Helium.Top.Top.Monad.Select
 
 type TG  info = BasicMonad (TGS info)
 type TGS info = And ( Fix (BasicState info) ) 

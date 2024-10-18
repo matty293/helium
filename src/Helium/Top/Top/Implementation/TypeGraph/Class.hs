@@ -7,14 +7,14 @@
 --   Portability  :  non-portable (requires extensions)
 -----------------------------------------------------------------------------
 
-module Top.Implementation.TypeGraph.Class where
+module Helium.Top.Top.Implementation.TypeGraph.Class where
 
-import Top.Types
-import Top.Implementation.TypeGraph.Basics
+import Helium.Top.Top.Types
+import Helium.Top.Top.Implementation.TypeGraph.Basics
 import Data.Maybe
 import qualified Data.Set as S
 import Data.List (nub)
-import Utils (internalError)
+import Helium.Top.Utils (internalError)
 
 class TypeGraph graph info | graph -> info where          
    

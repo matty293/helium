@@ -9,12 +9,12 @@
 --
 -----------------------------------------------------------------------------
 
-module Top.Types.Kinds where
+module Helium.Top.Top.Types.Kinds where
 
-import Top.Types.Primitive
-import Top.Types.Substitution
-import Top.Types.Quantification
-import Top.Types.Schemes
+import Helium.Top.Top.Types.Primitive
+import Helium.Top.Top.Types.Substitution
+import Helium.Top.Top.Types.Quantification
+import Helium.Top.Top.Types.Schemes
 
 type Kind       = Tp
 type Kinds      = [Kind]

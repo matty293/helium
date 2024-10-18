@@ -8,13 +8,13 @@
 --   Portability  :  non-portable (requires extensions)
 -----------------------------------------------------------------------------
 
-module Top.Interface.Qualification where
+module Helium.Top.Top.Interface.Qualification where
 
-import Top.Monad.Select
-import Top.Monad.StateFix
-import Top.Types hiding (contextReduction)
-import Top.Interface.Substitution
-import Top.Implementation.TypeClassDirectives
+import Helium.Top.Top.Monad.Select
+import Helium.Top.Top.Monad.StateFix
+import Helium.Top.Top.Types hiding (contextReduction)
+import Helium.Top.Top.Interface.Substitution
+import Helium.Top.Top.Implementation.TypeClassDirectives
 
 ------------------------------------------------------------------------
 -- (I)  Class name and (dedicated) deselect function

@@ -7,7 +7,7 @@
 --   Portability  :  non-portable (requires extensions)
 -----------------------------------------------------------------------------
 
-module Top.Ordering.TreeWalk where
+module Helium.Top.Top.Ordering.TreeWalk where
 
 newtype TreeWalk = TreeWalk (forall a . List a -> [(List a, List a)] -> List a)
 

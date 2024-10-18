@@ -7,7 +7,7 @@
 --   Portability  :  non-portable (requires extensions)
 -----------------------------------------------------------------------------
 
-module Top.Implementation.TypeGraph.ApplyHeuristics (applyHeuristics, predicatePath, expandPath) where
+module Helium.Top.Top.Implementation.TypeGraph.ApplyHeuristics (applyHeuristics, predicatePath, expandPath) where
 
 import Data.Graph (buildG, scc)
 import Data.List
@@ -15,15 +15,15 @@ import Data.Function
 import Data.Tree (flatten)
 import qualified Data.Map as M
 import qualified Data.Set as S
-import Top.Implementation.TypeGraph.Basics
-import Top.Implementation.TypeGraph.ClassMonadic
-import Top.Implementation.TypeGraph.Heuristic
-import Top.Implementation.TypeGraph.Path
-import Top.Interface.Qualification hiding (contextReduction)
-import Top.Interface.TypeInference
-import Top.Solver
-import Top.Types 
-import Utils (internalError)
+import Helium.Top.Top.Implementation.TypeGraph.Basics
+import Helium.Top.Top.Implementation.TypeGraph.ClassMonadic
+import Helium.Top.Top.Implementation.TypeGraph.Heuristic
+import Helium.Top.Top.Implementation.TypeGraph.Path
+import Helium.Top.Top.Interface.Qualification hiding (contextReduction)
+import Helium.Top.Top.Interface.TypeInference
+import Helium.Top.Top.Solver
+import Helium.Top.Top.Types 
+import Helium.Top.Utils (internalError)
 import Control.Monad (foldM)
 
 type ErrorInfo info = ([EdgeId], info)

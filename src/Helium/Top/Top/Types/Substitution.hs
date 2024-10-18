@@ -11,13 +11,13 @@
 --
 -----------------------------------------------------------------------------
 
-module Top.Types.Substitution where
+module Helium.Top.Top.Types.Substitution where
 
-import Top.Types.Primitive
+import Helium.Top.Top.Types.Primitive
 import Data.List (union, (\\), nub)
 import qualified Data.Map as M
 import qualified Data.Set as S
-import Utils (internalError)
+import Helium.Top.Utils (internalError)
 
 ----------------------------------------------------------------------
 -- * Substitutions and substitutables

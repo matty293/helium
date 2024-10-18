@@ -8,15 +8,15 @@
 --   Portability  :  non-portable (requires extensions)
 -----------------------------------------------------------------------------
 
-module Top.Implementation.TypeGraph.ClassMonadic where
+module Helium.Top.Top.Implementation.TypeGraph.ClassMonadic where
 
-import Top.Interface.Basic
-import Top.Interface.TypeInference
-import Top.Interface.Qualification
-import qualified Top.Implementation.TypeGraph.Class as TG
-import Top.Implementation.TypeGraph.Basics
-import Top.Types
-import Top.Solver
+import Helium.Top.Top.Interface.Basic
+import Helium.Top.Top.Interface.TypeInference
+import Helium.Top.Top.Interface.Qualification
+import qualified Helium.Top.Top.Implementation.TypeGraph.Class as TG
+import Helium.Top.Top.Implementation.TypeGraph.Basics
+import Helium.Top.Top.Types
+import Helium.Top.Top.Solver
 import qualified Data.Map as M
 import qualified Data.Set as S
 

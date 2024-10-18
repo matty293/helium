@@ -7,18 +7,18 @@
 --   Portability  :  non-portable (requires extensions)
 -----------------------------------------------------------------------------
 
-module Top.Solver.Greedy where
+module Helium.Top.Top.Solver.Greedy where
 
-import Top.Interface.Substitution()      
-import Top.Implementation.General
-import Top.Implementation.Basic
-import Top.Implementation.TypeInference
-import Top.Implementation.FastSubstitution
-import Top.Implementation.SimpleSubstitution
-import Top.Implementation.Overloading
-import Top.Solver
-import Top.Constraint
-import Top.Constraint.Information
+import Helium.Top.Top.Interface.Substitution()      
+import Helium.Top.Top.Implementation.General
+import Helium.Top.Top.Implementation.Basic
+import Helium.Top.Top.Implementation.TypeInference
+import Helium.Top.Top.Implementation.FastSubstitution
+import Helium.Top.Top.Implementation.SimpleSubstitution
+import Helium.Top.Top.Implementation.Overloading
+import Helium.Top.Top.Solver
+import Helium.Top.Top.Constraint
+import Helium.Top.Top.Constraint.Information
 -- for testing only
 -- import Top.Types
 -- import Top.Constraint.Equality

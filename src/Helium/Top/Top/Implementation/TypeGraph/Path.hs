@@ -6,13 +6,13 @@
 --   Portability  :  portable
 -----------------------------------------------------------------------------
 
-module Top.Implementation.TypeGraph.Path where  
+module Helium.Top.Top.Implementation.TypeGraph.Path where  
 
 import Data.Function
 import Data.List
 import Data.Maybe
 import qualified Data.Map as M
-import Utils (internalError)
+import Helium.Top.Utils (internalError)
 
 ----------------------
    

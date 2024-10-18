@@ -6,9 +6,9 @@
 --   Portability  :  portable
 -----------------------------------------------------------------------------
 
-module Top.Ordering.Tree where
+module Helium.Top.Top.Ordering.Tree where
 
-import Top.Ordering.TreeWalk
+import Helium.Top.Top.Ordering.TreeWalk
 import Data.List (partition, intersperse)
 import qualified Data.Map as M
 import qualified Data.Set as S

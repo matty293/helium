@@ -13,11 +13,11 @@
 --
 -----------------------------------------------------------------------------
 
-module Top.Types.Synonym where
+module Helium.Top.Top.Types.Synonym where
 
-import Top.Types.Primitive
-import Top.Types.Substitution hiding (lookupInt)
-import Utils (internalError)
+import Helium.Top.Top.Types.Primitive
+import Helium.Top.Top.Types.Substitution hiding (lookupInt)
+import Helium.Top.Utils (internalError)
 import Data.Maybe
 import Data.Graph (scc, buildG)
 import Data.Tree (flatten)

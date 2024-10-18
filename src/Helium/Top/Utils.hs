@@ -6,7 +6,7 @@
 --   Portability  :  portable
 -----------------------------------------------------------------------------
 
-module Utils (internalError) where
+module Helium.Top.Utils (internalError) where
 
 internalError :: String -> String -> String -> a
 internalError moduleName functionName message = 

@@ -7,7 +7,7 @@
 --   Portability  :  non-portable (requires extensions)
 -----------------------------------------------------------------------------
 
-module Top.Util.Option where
+module Helium.Top.Top.Util.Option where
 
 import Control.Monad.State
 

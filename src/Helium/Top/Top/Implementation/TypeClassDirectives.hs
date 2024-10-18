@@ -1,7 +1,7 @@
-module Top.Implementation.TypeClassDirectives where
+module Helium.Top.Top.Implementation.TypeClassDirectives where
 
-import Top.Types.Primitive
-import Top.Types.Classes
+import Helium.Top.Top.Types.Primitive
+import Helium.Top.Top.Types.Classes
 
     -- Type class directives
 type TypeClassDirectives info = [TypeClassDirective info]

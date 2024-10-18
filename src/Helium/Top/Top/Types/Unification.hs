@@ -10,13 +10,13 @@
 --
 -----------------------------------------------------------------------------
 
-module Top.Types.Unification where
+module Helium.Top.Top.Types.Unification where
 
-import Top.Types.Substitution
-import Top.Types.Primitive
-import Top.Types.Synonym
+import Helium.Top.Top.Types.Substitution
+import Helium.Top.Top.Types.Primitive
+import Helium.Top.Top.Types.Synonym
 import qualified Data.Map as M
-import Utils (internalError)
+import Helium.Top.Utils (internalError)
 
 -- import qualified Debug.Trace as Debug
 

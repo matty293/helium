@@ -6,10 +6,10 @@
 --   Portability  :  portable
 -----------------------------------------------------------------------------
 
-module Top.Solver.SwitchCombinator where
+module Helium.Top.Top.Solver.SwitchCombinator where
 
-import Top.Interface.Basic
-import Top.Solver
+import Helium.Top.Top.Interface.Basic
+import Helium.Top.Top.Solver
 
 -- |The first solver is used to solve the constraint set. If this fails (at least one 
 -- error is returned), then the second solver takes over.     

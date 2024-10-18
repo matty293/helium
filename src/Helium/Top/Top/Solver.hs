@@ -7,24 +7,24 @@
 --   Portability  :  non-portable (requires extensions)
 -----------------------------------------------------------------------------
 
-module Top.Solver 
-   ( module Top.Solver
+module Helium.Top.Top.Solver 
+   ( module Helium.Top.Top.Solver
    , module Control.Monad.Writer
    ) where
 
-import Top.Types
-import Top.Interface.Basic
-import Top.Interface.TypeInference
-import Top.Interface.Substitution
-import Top.Interface.Qualification
-import Top.Implementation.Overloading()
-import Top.Implementation.TypeClassDirectives
-import Top.Implementation.General
-import Top.Util.Option
-import Top.Monad.StateFix
-import Top.Constraint
+import Helium.Top.Top.Types
+import Helium.Top.Top.Interface.Basic
+import Helium.Top.Top.Interface.TypeInference
+import Helium.Top.Top.Interface.Substitution
+import Helium.Top.Top.Interface.Qualification
+import Helium.Top.Top.Implementation.Overloading()
+import Helium.Top.Top.Implementation.TypeClassDirectives
+import Helium.Top.Top.Implementation.General
+import Helium.Top.Top.Util.Option
+import Helium.Top.Top.Monad.StateFix
+import Helium.Top.Top.Constraint
 import qualified Data.Map as M
-import Top.Constraint.Information
+import Helium.Top.Top.Constraint.Information
 import Control.Monad.Writer
 import Data.Semigroup as Sem
 

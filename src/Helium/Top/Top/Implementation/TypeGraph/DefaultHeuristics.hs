@@ -7,15 +7,15 @@
 --   Portability  :  portable
 -----------------------------------------------------------------------------
 
-module Top.Implementation.TypeGraph.DefaultHeuristics where
+module Helium.Top.Top.Implementation.TypeGraph.DefaultHeuristics where
 
-import Top.Implementation.TypeGraph.ApplyHeuristics (predicatePath, expandPath)
-import Top.Implementation.TypeGraph.Basics
-import Top.Implementation.TypeGraph.Heuristic
-import Top.Implementation.TypeGraph.Path
+import Helium.Top.Top.Implementation.TypeGraph.ApplyHeuristics (predicatePath, expandPath)
+import Helium.Top.Top.Implementation.TypeGraph.Basics
+import Helium.Top.Top.Implementation.TypeGraph.Heuristic
+import Helium.Top.Top.Implementation.TypeGraph.Path
 import Data.List
 import qualified Data.Map as M
-import Top.Solver
+import Helium.Top.Top.Solver
 
 -----------------------------------------------------------------------------
 

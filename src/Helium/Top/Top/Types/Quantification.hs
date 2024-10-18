@@ -10,13 +10,13 @@
 --
 -----------------------------------------------------------------------------
 
-module Top.Types.Quantification where
+module Helium.Top.Top.Types.Quantification where
 
-import Top.Types.Primitive
-import Top.Types.Substitution
+import Helium.Top.Top.Types.Primitive
+import Helium.Top.Top.Types.Substitution
 import Data.List
 import Data.Maybe
-import Utils (internalError)
+import Helium.Top.Utils (internalError)
 
 -----------------------------------------------------------------------------
 -- * Quantification

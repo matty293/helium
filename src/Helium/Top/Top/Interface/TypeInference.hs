@@ -8,14 +8,14 @@
 --   Portability  :  non-portable (requires extensions)
 -----------------------------------------------------------------------------
 
-module Top.Interface.TypeInference where
+module Helium.Top.Top.Interface.TypeInference where
 
-import Top.Types
-import Top.Monad.Select
-import Top.Monad.StateFix
-import Top.Interface.Basic
-import Top.Interface.Substitution
-import Top.Constraint.Information
+import Helium.Top.Top.Types
+import Helium.Top.Top.Monad.Select
+import Helium.Top.Top.Monad.StateFix
+import Helium.Top.Top.Interface.Basic
+import Helium.Top.Top.Interface.Substitution
+import Helium.Top.Top.Constraint.Information
 import Data.Function
 import Data.List (intersect, sortBy, partition, groupBy)
 import qualified Data.Map as M

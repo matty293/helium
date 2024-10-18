@@ -8,9 +8,9 @@
 
 module Helium.Main.PhaseCodeGeneratorLlvm(phaseCodeGeneratorLlvm) where
 
-import Lvm.Common.Id(NameSupply, splitNameSupplies, mapWithSupply)
-import qualified Lvm.Core.Expr as Core
-import qualified Lvm.Core.Module as Core
+import Helium.Lvmlib.Lvm.Common.Id(NameSupply, splitNameSupplies, mapWithSupply)
+import qualified Helium.Lvmlib.Lvm.Core.Expr as Core
+import qualified Helium.Lvmlib.Lvm.Core.Module as Core
 import Helium.Main.CompileUtils
 import Control.Monad(when)
 import Helium.CodeGeneration.Iridium.ResolveDependencies(IridiumFile(..))

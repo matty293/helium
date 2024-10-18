@@ -10,13 +10,13 @@
 --
 -----------------------------------------------------------------------------
 
-module Top.Types.Classes where
+module Helium.Top.Top.Types.Classes where
 
-import Top.Types.Primitive
-import Top.Types.Substitution
-import Top.Types.Unification
-import Top.Types.Synonym
-import Top.Types.Qualification
+import Helium.Top.Top.Types.Primitive
+import Helium.Top.Top.Types.Substitution
+import Helium.Top.Top.Types.Unification
+import Helium.Top.Top.Types.Synonym
+import Helium.Top.Top.Types.Qualification
 import Control.Monad
 import qualified Data.Map as M
 

@@ -8,22 +8,22 @@
 --   Portability  :  non-portable (requires extensions)
 -----------------------------------------------------------------------------
 
-module Top.Implementation.TypeGraphSubstitution where
+module Helium.Top.Top.Implementation.TypeGraphSubstitution where
 
-import Top.Implementation.TypeGraph.ClassMonadic
-import Top.Implementation.TypeGraph.Standard
-import Top.Implementation.TypeGraph.Heuristic
-import Top.Interface.Substitution
-import Top.Interface.Basic
-import Top.Interface.TypeInference
-import Top.Interface.Qualification
-import Top.Implementation.TypeGraph.DefaultHeuristics
-import Top.Implementation.TypeGraph.ApplyHeuristics
-import Top.Monad.Select
-import Top.Monad.StateFix
-import Top.Solver
-import Top.Implementation.General
-import Top.Util.Embedding
+import Helium.Top.Top.Implementation.TypeGraph.ClassMonadic
+import Helium.Top.Top.Implementation.TypeGraph.Standard
+import Helium.Top.Top.Implementation.TypeGraph.Heuristic
+import Helium.Top.Top.Interface.Substitution
+import Helium.Top.Top.Interface.Basic
+import Helium.Top.Top.Interface.TypeInference
+import Helium.Top.Top.Interface.Qualification
+import Helium.Top.Top.Implementation.TypeGraph.DefaultHeuristics
+import Helium.Top.Top.Implementation.TypeGraph.ApplyHeuristics
+import Helium.Top.Top.Monad.Select
+import Helium.Top.Top.Monad.StateFix
+import Helium.Top.Top.Solver
+import Helium.Top.Top.Implementation.General
+import Helium.Top.Top.Util.Embedding
 
 ------------------------------------------------------------------------
 -- (I)  Algebraic data type

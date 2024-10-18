@@ -8,12 +8,12 @@
 --   Portability  :  non-portable (requires extensions)
 -----------------------------------------------------------------------------
 
-module Top.Interface.Substitution where
+module Helium.Top.Top.Interface.Substitution where
 
-import Top.Types
-import Top.Monad.Select
-import Top.Monad.StateFix
-import Top.Interface.Basic (ErrorLabel(..))
+import Helium.Top.Top.Types
+import Helium.Top.Top.Monad.Select
+import Helium.Top.Top.Monad.StateFix
+import Helium.Top.Top.Interface.Basic (ErrorLabel(..))
 
 ------------------------------------------------------------------------
 -- (I)  Class name and (dedicated) deselect function

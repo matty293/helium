@@ -8,21 +8,21 @@
 --   Portability  :  non-portable (requires extensions)
 -----------------------------------------------------------------------------
 
-module Top.Implementation.Overloading where
+module Helium.Top.Top.Implementation.Overloading where
 
-import Top.Types hiding (contextReduction)
-import qualified Top.Types (contextReduction)
-import Top.Constraint
-import Top.Constraint.Information
-import Top.Constraint.Equality
-import Top.Implementation.General
-import Top.Implementation.TypeClassDirectives
-import Top.Interface.TypeInference (getTypeSynonyms, HasTI, getSkolems)
-import Top.Interface.Basic
-import Top.Interface.Substitution
-import Top.Interface.Qualification
-import Top.Monad.Select
-import Top.Util.Embedding
+import Helium.Top.Top.Types hiding (contextReduction)
+import qualified Helium.Top.Top.Types (contextReduction)
+import Helium.Top.Top.Constraint
+import Helium.Top.Top.Constraint.Information
+import Helium.Top.Top.Constraint.Equality
+import Helium.Top.Top.Implementation.General
+import Helium.Top.Top.Implementation.TypeClassDirectives
+import Helium.Top.Top.Interface.TypeInference (getTypeSynonyms, HasTI, getSkolems)
+import Helium.Top.Top.Interface.Basic
+import Helium.Top.Top.Interface.Substitution
+import Helium.Top.Top.Interface.Qualification
+import Helium.Top.Top.Monad.Select
+import Helium.Top.Top.Util.Embedding
 import qualified Data.Map as M
 import Data.Maybe
 import Data.List (intercalate, (\\), partition)
@@ -103,7 +103,7 @@ instance ( MonadState s m
          classEnv <- getClassEnvironment
          qmap     <- gets predicateMap
          let ps = globalQualifiers qmap ++ globalGeneralizedQs qmap ++ globalAssumptions qmap
-         return (fst (Top.Types.contextReduction syns classEnv (map fst ps)))
+         return (fst (Helium.Top.Top.Types.contextReduction syns classEnv (map fst ps)))
          
    generalizeWithQualifiers monos tp =
       do preds1 <- proveQsSubst

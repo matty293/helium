@@ -8,12 +8,12 @@
 --   Portability  :  non-portable (requires extensions)
 -----------------------------------------------------------------------------
 
-module Top.Monad.Select 
-   ( module Top.Monad.Select
+module Helium.Top.Top.Monad.Select 
+   ( module Helium.Top.Top.Monad.Select
    , module Control.Monad.State
    ) where
 
-import Top.Util.Embedding
+import Helium.Top.Top.Util.Embedding
 import Control.Monad.State
 import Control.Monad (liftM, ap)
 --import Control.Applicative

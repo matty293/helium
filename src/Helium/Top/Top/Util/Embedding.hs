@@ -6,7 +6,7 @@
 --   Portability  :  portable
 -----------------------------------------------------------------------------
 
-module Top.Util.Embedding where
+module Helium.Top.Top.Util.Embedding where
 
 data Embedding a b = Embedding { getE :: a -> b, changeE :: (b -> b) -> a -> a }
 

@@ -82,6 +82,13 @@ packages:
   original:
     hackage: array-0.5.4.0
 - completed:
+    hackage: scientific-0.3.7.0@sha256:909755ab19b453169ff85281323da1488407776b2360bd9f7afdd219fd306ef2,4869
+    pantry-tree:
+      sha256: 00e74ee83063c8c5cf5c726d9ed079a7f67051f3ddd9e2ecbbe3c6ea06271061
+      size: 657
+  original:
+    hackage: scientific-0.3.7.0
+- completed:
     name: llvm-hs-pure
     pantry-tree:
       sha256: f06514eda279070c45e53204fe426b262ad117f17c22cfa68b65ba2a9cddffcb

@@ -7,16 +7,16 @@
 --   Portability  :  non-portable (requires extensions)
 -----------------------------------------------------------------------------
 
-module Top.Implementation.SimpleSubstitution where 
+module Helium.Top.Top.Implementation.SimpleSubstitution where 
 
-import Top.Types
-import Top.Implementation.General
-import Top.Interface.Substitution
-import Top.Interface.TypeInference
-import Top.Interface.Basic
-import Top.Monad.Select
-import Top.Util.Embedding
-import Top.Util.Empty()
+import Helium.Top.Top.Types
+import Helium.Top.Top.Implementation.General
+import Helium.Top.Top.Interface.Substitution
+import Helium.Top.Top.Interface.TypeInference
+import Helium.Top.Top.Interface.Basic
+import Helium.Top.Top.Monad.Select
+import Helium.Top.Top.Util.Embedding
+import Helium.Top.Top.Util.Empty()
 
 ------------------------------------------------------------------------
 -- (I)  Algebraic data type

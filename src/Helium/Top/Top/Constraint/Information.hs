@@ -7,9 +7,9 @@
 --   Portability  :  non-portable (requires extensions)
 -----------------------------------------------------------------------------
 
-module Top.Constraint.Information where
+module Helium.Top.Top.Constraint.Information where
 
-import Top.Types
+import Helium.Top.Top.Types
 
 instance TypeConstraintInfo ()
 instance PolyTypeConstraintInfo ()

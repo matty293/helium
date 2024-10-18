@@ -11,12 +11,12 @@
 -----------------------------------------------------------------------------
 
 
-module Top.Constraint.Qualifier where
+module Helium.Top.Top.Constraint.Qualifier where
 
-import Top.Types
-import Top.Constraint
-import Top.Constraint.Information
-import Top.Interface.Qualification
+import Helium.Top.Top.Types
+import Helium.Top.Top.Constraint
+import Helium.Top.Top.Constraint.Information
+import Helium.Top.Top.Interface.Qualification
 import Data.List
 
 data ExtraConstraint info 

@@ -11,7 +11,7 @@
 --
 -----------------------------------------------------------------------------
 
-module Top.Implementation.TypeGraph.EquivalenceGroup 
+module Helium.Top.Top.Implementation.TypeGraph.EquivalenceGroup 
    ( EquivalenceGroup 
    , emptyGroup, insertVertex, insertEdge, insertClique, combineGroups
    , vertices, constants, edges, equalPaths
@@ -19,9 +19,9 @@ module Top.Implementation.TypeGraph.EquivalenceGroup
    , typeOfGroup, consistent, checkGroup
    ) where
    
-import Top.Implementation.TypeGraph.Path
-import Top.Implementation.TypeGraph.Basics
-import Top.Types
+import Helium.Top.Top.Implementation.TypeGraph.Path
+import Helium.Top.Top.Implementation.TypeGraph.Basics
+import Helium.Top.Top.Types
 import Data.List
 import Data.Maybe
 import qualified Data.Set as S

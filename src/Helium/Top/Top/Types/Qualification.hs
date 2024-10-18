@@ -9,10 +9,10 @@
 --
 -----------------------------------------------------------------------------
 
-module Top.Types.Qualification where
+module Helium.Top.Top.Types.Qualification where
 
-import Top.Types.Primitive
-import Top.Types.Substitution
+import Helium.Top.Top.Types.Primitive
+import Helium.Top.Top.Types.Substitution
 import Data.List
 
 -----------------------------------------------------------------------------

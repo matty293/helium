@@ -7,18 +7,18 @@
 --   Portability  :  non-portable (requires extensions)
 -----------------------------------------------------------------------------
 
-module Top.Implementation.FastSubstitution where 
+module Helium.Top.Top.Implementation.FastSubstitution where 
 
-import Top.Types
-import Top.Implementation.General
-import Top.Util.Embedding
-import Top.Monad.Select
-import Top.Interface.TypeInference
-import Top.Interface.Basic
-import Top.Interface.Substitution
+import Helium.Top.Top.Types
+import Helium.Top.Top.Implementation.General
+import Helium.Top.Top.Util.Embedding
+import Helium.Top.Top.Monad.Select
+import Helium.Top.Top.Interface.TypeInference
+import Helium.Top.Top.Interface.Basic
+import Helium.Top.Top.Interface.Substitution
 import qualified Data.Map as M
 import Data.Maybe
-import Utils (internalError)
+import Helium.Top.Utils (internalError)
 
 ------------------------------------------------------------------------
 -- (I)  Algebraic data type

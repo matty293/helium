@@ -12,16 +12,16 @@ module Main where
 import Text.ParserCombinators.Parsec
 import qualified Text.ParserCombinators.Parsec.Token as P
 import qualified Text.ParserCombinators.Parsec.Language as P
-import Top.Constraint
-import Top.Types
-import Top.Constraint.Information
-import Top.Constraint.Qualifier
-import Top.Constraint.Equality
-import Top.Constraint.Polymorphism (PolymorphismConstraint(..))
-import Top.Interface.TypeInference
-import Top.Solver
-import Top.Solver.TypeGraph
-import Utils (internalError)
+import Helium.Top.Top.Constraint
+import Helium.Top.Top.Types
+import Helium.Top.Top.Constraint.Information
+import Helium.Top.Top.Constraint.Qualifier
+import Helium.Top.Top.Constraint.Equality
+import Helium.Top.Top.Constraint.Polymorphism (PolymorphismConstraint(..))
+import Helium.Top.Top.Interface.TypeInference
+import Helium.Top.Top.Solver
+import Helium.Top.Top.Solver.TypeGraph
+import Helium.Top.Utils (internalError)
 import Data.Char (isDigit, isLower)
 import Data.List (intercalate, intersperse)
 import Data.Maybe

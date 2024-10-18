@@ -11,17 +11,18 @@
 --
 -----------------------------------------------------------------------------
 
-module Top.Implementation.TypeInference where
+module Helium.Top.Top.Implementation.TypeInference where
 
-import Top.Types
-import Top.Implementation.General
-import Top.Interface.TypeInference
+import Helium.Top.Top.Types
+import Helium.Top.Top.Implementation.General
+import Helium.Top.Top.Interface.TypeInference
 -- import Data.List
 import qualified Data.Map as M
 --import Top.Util.Empty
-import Top.Monad.Select
+import Helium.Top.Top.Monad.Select
 -- import Control.Monad.State
-import Utils (internalError)
+import Helium.Top.Utils (internalError)
+
 
 ------------------------------------------------------------------------
 -- (I)  Algebraic data type

@@ -11,13 +11,13 @@ module Helium.ModuleSystem.CoreToImportEnv
     , parseFromString
     ) where
 
-import Lvm.Core.Expr
-import qualified Lvm.Core.Type as Core
+import Helium.Lvmlib.Lvm.Core.Expr
+import qualified Helium.Lvmlib.Lvm.Core.Type as Core
 import qualified Helium.CodeGeneration.Core.TypeEnvironment as Core
-import Lvm.Core.Utils
-import Lvm.Common.Id
-import Lvm.Common.IdSet
-import Lvm.Common.Byte(stringFromBytes)
+import Helium.Lvmlib.Lvm.Core.Utils
+import Helium.Lvmlib.Lvm.Common.Id
+import Helium.Lvmlib.Lvm.Common.IdSet
+import Helium.Lvmlib.Lvm.Common.Byte(stringFromBytes)
 
 import Helium.Utils.Utils
 import Helium.StaticAnalysis.Miscellaneous.TypeConversion
@@ -30,7 +30,7 @@ import Helium.Syntax.UHA_Utils
 import Helium.Syntax.UHA_Range(makeImportRange, setNameRange)
 import Helium.Syntax.UHA_Syntax
 
-import Top.Types
+import Helium.Top.Top.Types
 
 import Control.Arrow
 import Control.Applicative

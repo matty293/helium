@@ -13,13 +13,13 @@
 -----------------------------------------------------------------------------
 
 
-module Top.Implementation.Basic where
+module Helium.Top.Top.Implementation.Basic where
 
 import Control.Arrow
-import Top.Constraint
-import Top.Util.Option
-import Top.Implementation.General
-import Top.Interface.Basic
+import Helium.Top.Top.Constraint
+import Helium.Top.Top.Util.Option
+import Helium.Top.Top.Implementation.General
+import Helium.Top.Top.Interface.Basic
     ( ErrorLabel,
       HasBasic(getLabeledErrors, checkConditions, getChecks, addCheck,
                updateErrorInfo, addLabeledError, popConstraint, pushConstraints,
@@ -27,10 +27,10 @@ import Top.Interface.Basic
       ClassBasic,
       stopOption,
       checkOption )
-import Top.Monad.Select
+import Helium.Top.Top.Monad.Select
 -- import Control.Monad.State
-import Top.Util.Embedding
-import Top.Util.Empty()
+import Helium.Top.Top.Util.Embedding
+import Helium.Top.Top.Util.Empty()
 import Control.Monad (when)
 
 ------------------------------------------------------------------------

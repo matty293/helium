@@ -6,11 +6,11 @@
 --   Portability  :  portable
 -----------------------------------------------------------------------------
 
-module Top.Solver.PartitionCombinator where
+module Helium.Top.Top.Solver.PartitionCombinator where
 
-import Top.Types
-import Top.Solver
-import Top.Ordering.Tree
+import Helium.Top.Top.Types
+import Helium.Top.Top.Solver
+import Helium.Top.Top.Ordering.Tree
 import qualified Data.Map as M
 
 type Chunks constraint = [Chunk constraint]

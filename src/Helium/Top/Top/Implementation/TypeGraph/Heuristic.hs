@@ -7,14 +7,14 @@
 --   Portability  :  non-portable (requires extensions)
 -----------------------------------------------------------------------------
 
-module Top.Implementation.TypeGraph.Heuristic where
+module Helium.Top.Top.Implementation.TypeGraph.Heuristic where
 
-import Top.Implementation.TypeGraph.ClassMonadic
-import Top.Implementation.TypeGraph.Basics
-import Top.Implementation.TypeGraph.Path
-import Top.Types
-import Top.Solver
-import Utils (internalError)
+import Helium.Top.Top.Implementation.TypeGraph.ClassMonadic
+import Helium.Top.Top.Implementation.TypeGraph.Basics
+import Helium.Top.Top.Implementation.TypeGraph.Path
+import Helium.Top.Top.Types
+import Helium.Top.Top.Solver
+import Helium.Top.Utils (internalError)
 import Control.Monad (filterM)
 
 -----------------------------------------------------------------------------

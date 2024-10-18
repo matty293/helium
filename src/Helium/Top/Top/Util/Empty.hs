@@ -6,7 +6,7 @@
 --   Portability  :  portable
 -----------------------------------------------------------------------------
 
-module Top.Util.Empty where
+module Helium.Top.Top.Util.Empty where
 
 ------------------------------------------------------------------------
 -- * Empty type class

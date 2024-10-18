@@ -7,17 +7,17 @@
 --   Portability  :  non-portable (requires extensions)
 -----------------------------------------------------------------------------
 
-module Top.Implementation.TypeGraph.Standard where
+module Helium.Top.Top.Implementation.TypeGraph.Standard where
 
-import Top.Implementation.TypeGraph.Basics
-import Top.Implementation.TypeGraph.EquivalenceGroup
-import Top.Implementation.TypeGraph.Class
-import Top.Implementation.General
-import Top.Types
+import Helium.Top.Top.Implementation.TypeGraph.Basics
+import Helium.Top.Top.Implementation.TypeGraph.EquivalenceGroup
+import Helium.Top.Top.Implementation.TypeGraph.Class
+import Helium.Top.Top.Implementation.General
+import Helium.Top.Top.Types
 import qualified Data.Map as M
 import Data.List (nub)
 import Data.Maybe
-import Utils (internalError)
+import Helium.Top.Utils (internalError)
 
 data StandardTypeGraph info = STG
    { referenceMap            :: M.Map VertexId Int{- group number -}

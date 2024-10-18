@@ -7,13 +7,13 @@
 --   Portability  :  non-portable (requires extensions)
 -----------------------------------------------------------------------------
 
-module Top.Constraint.Equality where
+module Helium.Top.Top.Constraint.Equality where
 
-import Top.Types
-import Top.Constraint
-import Top.Constraint.Information
-import Top.Interface.Substitution
-import Top.Interface.TypeInference
+import Helium.Top.Top.Types
+import Helium.Top.Top.Constraint
+import Helium.Top.Top.Constraint.Information
+import Helium.Top.Top.Interface.Substitution
+import Helium.Top.Top.Interface.TypeInference
 import Data.List (union)
 
 data EqualityConstraint info

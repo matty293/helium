@@ -7,8 +7,8 @@
 --   Portability  :  non-portable (requires extensions)
 -----------------------------------------------------------------------------
 
-module Top.Monad.StateFix 
-   ( module Top.Monad.StateFix
+module Helium.Top.Top.Monad.StateFix 
+   ( module Helium.Top.Top.Monad.StateFix
    , module Control.Monad.State
    ) where
 

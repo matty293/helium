@@ -21,8 +21,8 @@ import Helium.StaticAnalysis.Directives.TS_Syntax()
 import Helium.StaticAnalysis.Miscellaneous.TypeConversion()
 import Helium.StaticAnalysis.Miscellaneous.ConstraintInfo
 import Helium.StaticAnalysis.Messages.Messages()
-import Top.Types
-import Lvm.Core.Module (Field(..))
+import Helium.Top.Top.Types
+import Helium.Lvmlib.Lvm.Core.Module (Field(..))
 
 
 import Data.List

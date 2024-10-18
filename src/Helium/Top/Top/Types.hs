@@ -9,14 +9,14 @@
 --
 -----------------------------------------------------------------------------
 
-module Top.Types (module Export) where
+module Helium.Top.Top.Types (module Export) where
 
-import Top.Types.Primitive      as Export
-import Top.Types.Substitution   as Export
-import Top.Types.Quantification as Export
-import Top.Types.Qualification  as Export
-import Top.Types.Synonym        as Export
-import Top.Types.Unification    as Export
-import Top.Types.Classes        as Export
-import Top.Types.Schemes        as Export
-import Top.Types.Kinds          as Export
+import Helium.Top.Top.Types.Primitive      as Export
+import Helium.Top.Top.Types.Substitution   as Export
+import Helium.Top.Top.Types.Quantification as Export
+import Helium.Top.Top.Types.Qualification  as Export
+import Helium.Top.Top.Types.Synonym        as Export
+import Helium.Top.Top.Types.Unification    as Export
+import Helium.Top.Top.Types.Classes        as Export
+import Helium.Top.Top.Types.Schemes        as Export
+import Helium.Top.Top.Types.Kinds          as Export
