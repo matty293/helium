@@ -16,7 +16,7 @@ module Helium.Syntax.UHA_Utils where
 import Helium.Syntax.UHA_Range  --altered for Holmes
 import Data.Maybe     --added for Holmes
 import Helium.Syntax.UHA_Syntax --added for Holmes
-import Helium.Lvmlib.Lvm.Common.Id(Id, idFromString, stringFromId)
+import Helium.Lvm.Common.Id(Id, idFromString, stringFromId)
 --import Data.Char
 import Data.List(intercalate)
 

@@ -28,9 +28,9 @@ INCLUDE "TS_Syntax.ag"
 INCLUDE "TS_Collect.ag"
 
 imports {
-import Top.Types
-import Top.Solver.Greedy
-import Top.Solver
+import Helium.Top.Top.Types
+import Helium.Top.Top.Solver.Greedy
+import Helium.Top.Top.Solver
 
 import Helium.StaticAnalysis.Miscellaneous.TypeConstraints
 import Helium.StaticAnalysis.Miscellaneous.ConstraintInfo

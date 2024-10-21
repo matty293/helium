@@ -81,7 +81,7 @@ SEM Module
 imports {
 
 -- types
-import Top.Types
+import Helium.Top.Top.Types
 import Helium.StaticAnalysis.Miscellaneous.TypeConversion
 
 -- error messages and warnings
