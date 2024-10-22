@@ -9,7 +9,7 @@
 module Helium.Main.PhaseTypingStrategies(phaseTypingStrategies) where
 
 import Helium.Main.CompileUtils
-import Helium.Lvmlib.Lvm.Core.Expr (CoreDecl)
+import Helium.Lvm.Core.Expr (CoreDecl)
 import Helium.StaticAnalysis.Directives.TS_Compile (readTypingStrategiesFromFile)
 import qualified Data.Map as M
 import Helium.Syntax.UHA_Syntax (Name)

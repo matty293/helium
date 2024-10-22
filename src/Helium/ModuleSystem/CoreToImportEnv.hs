@@ -11,13 +11,13 @@ module Helium.ModuleSystem.CoreToImportEnv
     , parseFromString
     ) where
 
-import Helium.Lvmlib.Lvm.Core.Expr
-import qualified Helium.Lvmlib.Lvm.Core.Type as Core
+import Helium.Lvm.Core.Expr
+import qualified Helium.Lvm.Core.Type as Core
 import qualified Helium.CodeGeneration.Core.TypeEnvironment as Core
-import Helium.Lvmlib.Lvm.Core.Utils
-import Helium.Lvmlib.Lvm.Common.Id
-import Helium.Lvmlib.Lvm.Common.IdSet
-import Helium.Lvmlib.Lvm.Common.Byte(stringFromBytes)
+import Helium.Lvm.Core.Utils
+import Helium.Lvm.Common.Id
+import Helium.Lvm.Common.IdSet
+import Helium.Lvm.Common.Byte(stringFromBytes)
 
 import Helium.Utils.Utils
 import Helium.StaticAnalysis.Miscellaneous.TypeConversion

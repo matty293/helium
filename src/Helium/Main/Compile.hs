@@ -8,15 +8,15 @@
 
 module Helium.Main.Compile(compile) where
 
-import Helium.Lvmlib.Lvm.Core.Expr(CoreModule)
-import qualified Helium.Lvmlib.Lvm.Core.Parsing.Parser as Lvm
-import qualified Helium.Lvmlib.Lvm.Core.Parsing.Lexer as Lvm
-import qualified Helium.Lvmlib.Lvm.Core.Parsing.Layout as Lvm
-import qualified Helium.Lvmlib.Lvm.Core.Module as Lvm
-import qualified Helium.Lvmlib.Lvm.Core.Expr as Lvm
-import qualified Helium.Lvmlib.Lvm.Import as Lvm
-import Helium.Lvmlib.Lvm.Path (searchPath, searchPathMaybe)
-import Helium.Lvmlib.Lvm.Common.Id (Id, stringFromId, newNameSupply, splitNameSupply)
+import Helium.Lvm.Core.Expr(CoreModule)
+import qualified Helium.Lvm.Core.Parsing.Parser as Lvm
+import qualified Helium.Lvm.Core.Parsing.Lexer as Lvm
+import qualified Helium.Lvm.Core.Parsing.Layout as Lvm
+import qualified Helium.Lvm.Core.Module as Lvm
+import qualified Helium.Lvm.Core.Expr as Lvm
+import qualified Helium.Lvm.Import as Lvm
+import Helium.Lvm.Path (searchPath, searchPathMaybe)
+import Helium.Lvm.Common.Id (Id, stringFromId, newNameSupply, splitNameSupply)
 import Helium.Main.PhaseLexer
 import Helium.Main.PhaseParser
 import Helium.Main.PhaseImport

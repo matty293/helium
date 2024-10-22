@@ -106,7 +106,7 @@ SEM TypingStrategy
            . solveErrors  = errorsFromResult @solveResult
            . solveResult =    
                 let options = solveOptions { uniqueCounter = length @uniqueTypevariables 
-                                           , Top.Solver.typeSynonyms = getOrderedTypeSynonyms @lhs.importEnvironment
+                                           , Helium.Top.Top.Solver.typeSynonyms = getOrderedTypeSynonyms @lhs.importEnvironment
                                            , classEnvironment = @classEnv
                                            } 
                 in fst (solve options (reverse @statements.userConstraints) greedyConstraintSolver)
