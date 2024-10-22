@@ -5,18 +5,23 @@
 --------------------------------------------------------------------------------
 --  $Id: Lexer.hs 269 2012-08-31 15:16:49Z bastiaan $
 
-module Helium.Lvm.Core.Parsing.Token 
-   ( Token, Lexeme(..), Pos, incpos, newpos
-   ) where
+module Helium.Lvm.Core.Parsing.Token
+   ( Token
+   , Lexeme(..)
+   , Pos
+   , incpos
+   , newpos
+   )
+where
 
-import Text.PrettyPrint.Leijen (Pretty(..))
+import           Text.PrettyPrint.Leijen        ( Pretty(..) )
 
 -----------------------------------------------------------
 -- Tokens and lexems
 -----------------------------------------------------------
 
-type Pos        = (Int,Int)
-type Token      = (Pos,Lexeme)
+type Pos = (Int, Int)
+type Token = (Pos, Lexeme)
 
 data Lexeme     = LexUnknown Char
                 | LexError String
@@ -25,10 +30,9 @@ data Lexeme     = LexUnknown Char
                 | LexInt Integer
                 | LexFloat Double
                 | LexId String
-                | LexQualId String String
+                | LexTypeVar Int
                 | LexOp String
                 | LexCon String
-                | LexQualCon String String
                 | LexConOp String
 
                 | LexCOMMA      -- ,
@@ -67,20 +71,21 @@ data Lexeme     = LexUnknown Char
                 | LexELSE
                 | LexDATA
                 | LexTYPE
+                | LexNEWTYPE
                 | LexMODULE
                 | LexIMPORT
+                | LexFORALL
                 | LexEOF
 
                 -- not standard
                 | LexLETSTRICT
-                | LexMATCH
                 | LexWITH
 
-                | LexPRIVATE
-                | LexPUBLIC
+                | LexEXPORT
+                | LexFROM
                 | LexDEFAULT
                 | LexCON
-                
+
                 | LexABSTRACT
                 | LexINSTR
                 | LexEXTERN
@@ -101,9 +106,9 @@ instance Pretty Lexeme where
 -----------------------------------------------------------
 
 incpos :: Pos -> Int -> Pos
-incpos (line,col) i     = (line,col+i)
+incpos (line, col) i = (line, col + i)
 
 newpos :: Pos -> Char -> Pos
-newpos (line,_)   '\n'  = (line + 1,1)
-newpos (line,col) '\t'  = (line, ((((col-1) `div` 8)+1)*8)+1)
-newpos (line,col) _     = (line, col+1)
+newpos (line, _  ) '\n' = (line + 1, 1)
+newpos (line, col) '\t' = (line, ((((col - 1) `div` 8) + 1) * 8) + 1)
+newpos (line, col) _    = (line, col + 1)

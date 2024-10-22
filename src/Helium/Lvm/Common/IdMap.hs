@@ -3,30 +3,42 @@
 -- is distributed under the terms of the BSD3 License. For more information, 
 -- see the file "LICENSE.txt", which is included in the distribution.
 --------------------------------------------------------------------------------
---  $Id: IdMap.hs 291 2012-11-08 11:27:33Z heere112 $
+--  $Id$
 
 module Helium.Lvm.Common.IdMap
-   ( IdMap, Id
+   ( IdMap(..), Id
      -- essential: used by "Asm" and "Lvm"
    , emptyMap, singleMap, elemMap, mapMap, insertMap, extendMap
    , insertMapWith, lookupMap, findMap, filterMap, listFromMap
    , mapMapWithId, unionMap, unionMapWith, updateMap
    -- exotic: used by core compiler
-   , Helium.Lvm.Common.IdMap.foldMap, deleteMap, filterMapWithId, mapFromList
+   , foldMap, deleteMap, filterMapWithId, mapFromList
    , unionMaps, diffMap, unionlMap, foldMapWithId
-   , isEmptyMap, sizeMap
+   , isEmptyMap, sizeMap, updateMapWith
    ) where
 
+import Prelude hiding (foldMap)
 import Data.List
 import Data.Maybe
-import qualified Data.IntMap as IntMap
+import qualified Data.IntMap.Strict as IntMap
 import Helium.Lvm.Common.Id
 import Control.Arrow (first)
 
-----------------------------------------------------------------
--- IdMap
-----------------------------------------------------------------
+-- | An efficient finite map from 'Id's to @a@'s
 newtype IdMap a = IdMap (IntMap.IntMap a)
+
+instance Functor IdMap where
+  fmap = mapMap
+
+--instance Monoid IdMap where
+--  mappend = Ambiguity mine field...
+--  Three possibilities for mappend:
+--    unionlMap: Ignore the value on the right
+--       Like IntMap and Map do
+--    unionWith mappend: Combine values using a Monoid a constraint
+--       Probably more useful, but could lead to unexpected results
+--       because of IntMap and Map behavior.
+--    unionMap: Throw an error on duplicate keys
 
 emptyMap :: IdMap a
 emptyMap = IdMap IntMap.empty
@@ -64,6 +76,12 @@ insertMapWith x a f (IdMap m)
 updateMap :: Id -> a -> IdMap a -> IdMap a
 updateMap x a (IdMap m)
   = IdMap (IntMap.insertWith const (intFromId x) a m)
+
+updateMapWith :: Id -> (a -> a) -> IdMap a -> IdMap a
+updateMapWith x f (IdMap m)
+  = IdMap (IntMap.insertWith (const f) (intFromId x) err m)
+  where
+    err = error ("IdMap.updateMapWith: id " ++ show x ++ " not present")
 
 deleteMap :: Id -> IdMap a -> IdMap a
 deleteMap x(IdMap m)

@@ -3,7 +3,7 @@
 -- is distributed under the terms of the BSD3 License. For more information, 
 -- see the file "LICENSE.txt", which is included in the distribution.
 --------------------------------------------------------------------------------
---  $Id: Data.hs 291 2012-11-08 11:27:33Z heere112 $
+--  $Id$
 
 module Helium.Lvm.Instr.Data 
    ( Instr(..), Var(..), Con(..), Global(..), Alt(..), Pat(..)
@@ -12,6 +12,7 @@ module Helium.Lvm.Instr.Data
    , isCATCH, strictResult
    ) where
 
+import Prelude hiding ((<$>))
 import Data.Char
 import Data.Maybe
 import Helium.Lvm.Common.Byte
@@ -208,18 +209,18 @@ instance Pretty Instr where
       USE         x           -> text name <+> pretty x
       NOP                     -> text name
       
-      ATOM        is          -> nest 2 (text name Text.PrettyPrint.Leijen.<$> pretty is)
-      INIT        is          -> nest 2 (text name Text.PrettyPrint.Leijen.<$> pretty is)
+      ATOM        is          -> nest 2 (text name <$> pretty is)
+      INIT        is          -> nest 2 (text name <$> pretty is)
 
     -- structured instructions
-      CATCH instrs            -> nest 2 (text name Text.PrettyPrint.Leijen.<$> pretty instrs)
-      EVAL d instrs           -> nest 2 (text name Text.PrettyPrint.Leijen.<$> pretty d Text.PrettyPrint.Leijen.<$> pretty instrs)
-      RESULT instrs           -> nest 2 (text name Text.PrettyPrint.Leijen.<$> pretty instrs)
+      CATCH instrs            -> nest 2 (text name <$> pretty instrs)
+      EVAL d instrs           -> nest 2 (text name <+> pretty d <$> pretty instrs)
+      RESULT instrs           -> nest 2 (text name <$> pretty instrs)
 
-      SWITCHCON alts          -> nest 2 (text name Text.PrettyPrint.Leijen.<$> pretty alts)
-      MATCHCON alts           -> nest 2 (text name Text.PrettyPrint.Leijen.<$> pretty alts)
-      MATCHINT alts           -> nest 2 (text name Text.PrettyPrint.Leijen.<$> pretty alts)
-      MATCH alts              -> nest 2 (text name Text.PrettyPrint.Leijen.<$> pretty alts)
+      SWITCHCON alts          -> nest 2 (text name <$> pretty alts)
+      MATCHCON alts           -> nest 2 (text name <$> pretty alts)
+      MATCHINT alts           -> nest 2 (text name <$> pretty alts)
+      MATCH alts              -> nest 2 (text name <$> pretty alts)
 
 
     -- push instructions
@@ -279,7 +280,7 @@ instance Pretty Instr where
       name = nameFromInstr instr
     
 instance Pretty Alt where 
-   pretty (Alt pat is) = nest 2 (pretty pat <> text ":" Text.PrettyPrint.Leijen.<$> pretty is)
+   pretty (Alt pat is) = nest 2 (pretty pat <> text ":" <$> pretty is)
    prettyList = vcat . map pretty
 
 instance Pretty Pat where

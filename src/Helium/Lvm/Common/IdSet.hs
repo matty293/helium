@@ -3,14 +3,14 @@
 -- is distributed under the terms of the BSD3 License. For more information, 
 -- see the file "LICENSE.txt", which is included in the distribution.
 --------------------------------------------------------------------------------
---  $Id: IdSet.hs 291 2012-11-08 11:27:33Z heere112 $
+--  $Id$
 
 -- this module is exotic, only used by the core compiler
 -- but it works with any IdMap
 module Helium.Lvm.Common.IdSet
    ( IdSet, Id
    , emptySet, singleSet, elemSet, filterSet, foldSet
-   , insertSet, deleteSet, unionSet, unionSets, diffSet
+   , insertSet, deleteSet, unionSet, unionSets, intersectionSet, diffSet
    , listFromSet, setFromList, sizeSet, isEmptySet
    ) where
 
@@ -18,12 +18,21 @@ import Data.IntSet (IntSet)
 import Data.List (sort)
 import Helium.Lvm.Common.Id
 import qualified Data.IntSet as IntSet
+import Data.Semigroup as Sem
 
-----------------------------------------------------------------
--- IdSet
-----------------------------------------------------------------
-
+-- | An efficient set of 'Id's
 newtype IdSet = IdSet IntSet
+
+instance Show IdSet where
+  showsPrec n a = showParen (n >= 11) (showString "IdSet.setFromList " . showsPrec 11 (listFromSet a))
+
+instance Sem.Semigroup IdSet where
+  (<>) = unionSet
+
+instance Monoid IdSet where
+  mempty  = emptySet
+  mappend = (<>)
+  mconcat = unionSets
 
 emptySet :: IdSet
 emptySet = IdSet IntSet.empty
@@ -51,6 +60,9 @@ unionSet (IdSet s1) (IdSet s2) = IdSet (s1 `IntSet.union` s2)
 
 unionSets :: [IdSet] -> IdSet
 unionSets xs = IdSet (IntSet.unions [ s | IdSet s <- xs ])
+
+intersectionSet :: IdSet -> IdSet -> IdSet
+intersectionSet (IdSet s1) (IdSet s2) = IdSet (s1 `IntSet.intersection` s2)
 
 diffSet :: IdSet -> IdSet -> IdSet
 diffSet (IdSet s1) (IdSet s2) = IdSet (IntSet.difference s1 s2)

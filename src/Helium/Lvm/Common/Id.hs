@@ -3,18 +3,18 @@
 -- is distributed under the terms of the BSD3 License. For more information, 
 -- see the file "LICENSE.txt", which is included in the distribution.
 --------------------------------------------------------------------------------
---  $Id: Id.hs 291 2012-11-08 11:27:33Z heere112 $
+--  $Id$
 
-module Helium.Lvm.Common.Id 
+module Helium.Lvm.Common.Id
    ( Id
    -- essential used in "asm" and "lvm"
    , stringFromId, idFromString, idFromStringEx, dummyId
    -- exotic: only used in the core compiler
    , freshIdFromId, getNameSpace, setNameSpace, NameSupply, newNameSupply
-   , splitNameSupply, splitNameSupplies, freshId, mapWithSupply
+   , splitNameSupply, splitNameSupplies, freshId, mapWithSupply, mapWithSupply'
    -- very exotic: only used internally for IdMap's that use IntMap
    , intFromId, idFromInt
-   ) where 
+   ) where
 
 import Data.IORef
 import Data.Int (Int32)
@@ -27,7 +27,7 @@ import qualified Data.IntMap as IntMap
 -- Types
 ----------------------------------------------------------------
 newtype Id        = Id Int32
- 
+
 intFromId :: Id -> Int
 intFromId (Id i)  = fromIntegral i
 idFromInt :: Int -> Id
@@ -39,6 +39,7 @@ idFromInt i       = Id (fromIntegral i)
 data Names        = Names Int (IntMap.IntMap [String])
 
 namesRef :: IORef Names
+{-# NOINLINE namesRef #-}
 namesRef = unsafePerformIO (newIORef emptyNames)
 
 emptyNames :: Names
@@ -47,9 +48,14 @@ emptyNames = Names 0 IntMap.empty
 idFromString :: String -> Id
 idFromString = idFromStringEx (0::Int)
 
+seqString :: String -> a -> a
+seqString str a = foldr seq a str
+
 idFromStringEx :: Enum a => a -> String -> Id
+{-# NOINLINE idFromStringEx #-}
 idFromStringEx ns name
-  = unsafePerformIO $
+  = seqString name $
+    unsafePerformIO $
     do{ names <- readIORef namesRef
       ; let (x, names') = insertName (fromEnum ns) name names
       ; writeIORef namesRef names'
@@ -57,6 +63,7 @@ idFromStringEx ns name
       }
 
 stringFromId :: Id -> String
+{-# NOINLINE stringFromId #-}
 stringFromId x@(Id i)
   | isUniq i  = '.' : show (extractUniq i)
   | otherwise = unsafePerformIO $
@@ -79,31 +86,45 @@ newNameSupply
       ; return (NameSupply ref)
       }
 
+{-# NOINLINE splitNameSupply #-}
 splitNameSupply :: NameSupply -> (NameSupply,NameSupply)
 splitNameSupply supply = (supply,supply)
 
+{-# NOINLINE splitNameSupplies #-}
 splitNameSupplies :: NameSupply -> [NameSupply]
 splitNameSupplies = repeat
 
+{-# NOINLINE freshIdFromId #-}
 freshIdFromId :: Id -> NameSupply -> (Id,NameSupply)
 freshIdFromId x supply@(NameSupply ref)
-  = unsafePerformIO (do{ i <- readIORef ref
-                       ; writeIORef ref (i+1)
+  = unsafePerformIO (do{ --i <- readIORef ref
+                       --; writeIORef ref (i+1)
+                       ; i <- atomicModifyIORef' ref (\i -> (i + 1, i))
                        ; let name = stringFromId x ++ "." ++ show i
                              x1   = idFromString name
                              x2   = setNameSpace (getNameSpace x :: Int) x1
                        ; seq name $ seq x2 $ return (x2,supply)
                        })
 
+{-# NOINLINE freshId #-}
 freshId :: NameSupply -> (Id,NameSupply)
 freshId supply@(NameSupply ref)
-  = unsafePerformIO (do{ i <- readIORef ref
-                       ; writeIORef ref (i+1)
+  = unsafePerformIO (do{ --i <- readIORef ref
+                       -- ; writeIORef ref (i+1)
+                       ; i <- atomicModifyIORef' ref (\i -> (i + 1, i))
                        ; return (Id (initUniq i), supply)
                        })
 
+{-# NOINLINE mapWithSupply #-}
 mapWithSupply :: (NameSupply -> a -> b) -> NameSupply -> [a] -> [b]
 mapWithSupply f = zipWith f . splitNameSupplies
+
+mapWithSupply' :: (NameSupply -> a -> (b, NameSupply)) -> NameSupply -> [a] -> ([b], NameSupply)
+mapWithSupply' _ supply [] = ([], supply)
+mapWithSupply' f supply (a:as) = (b : bs, supply'')
+  where
+    (b, supply') = f supply a
+    (bs, supply'') = mapWithSupply' f supply' as
 
 ----------------------------------------------------------------
 -- Bit masks used within an Id
@@ -226,7 +247,7 @@ insertName srt name names
     in (setNameSpace srt x, names')
 
 insertName' :: String -> Names -> (Id,Names)
-insertName' name (Names fresh m) 
+insertName' name (Names fresh m)
    | idx > maxIdx = error ("Id.insertName: too many names with the same hash value (" ++ show name ++ ")")
    | otherwise    = (Id (initIdx idx h), Names fresh m1)
  where

@@ -3,7 +3,7 @@
 -- is distributed under the terms of the BSD3 License. For more information, 
 -- see the file "LICENSE.txt", which is included in the distribution.
 --------------------------------------------------------------------------------
---  $Id: Rewrite.hs 291 2012-11-08 11:27:33Z heere112 $
+--  $Id$
 
 module Helium.Lvm.Instr.Rewrite (instrRewrite) where
 

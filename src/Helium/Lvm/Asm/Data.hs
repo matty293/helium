@@ -3,31 +3,42 @@
 -- is distributed under the terms of the BSD3 License. For more information, 
 -- see the file "LICENSE.txt", which is included in the distribution.
 --------------------------------------------------------------------------------
---  $Id: Data.hs 291 2012-11-08 11:27:33Z heere112 $
+--  $Id$
 
-module Helium.Lvm.Asm.Data 
-   ( AsmModule, AsmDecl
-   , Top(..), Atom, Expr(..), Note(..), Occur(..)
-   , Lit(..), Alt(..), Pat(..), Con(..)
-   ) where
+module Helium.Lvm.Asm.Data
+   ( AsmModule
+   , AsmDecl
+   , Top(..)
+   , Atom
+   , Expr(..)
+   , Note(..)
+   , Occur(..)
+   , Lit(..)
+   , Alt(..)
+   , Pat(..)
+   , Con(..)
+   )
+where
 
-import Helium.Lvm.Common.Byte
-import Helium.Lvm.Common.Id
-import Helium.Lvm.Core.Module
-import Text.PrettyPrint.Leijen
+import           Prelude                 hiding ( (<$>) )
+
+import           Helium.Lvm.Common.Byte
+import           Helium.Lvm.Common.Id
+import           Helium.Lvm.Core.Module
+import           Text.PrettyPrint.Leijen
 
 {---------------------------------------------------------------
   Asm modules
 ---------------------------------------------------------------}
-type AsmModule  = Module Top
-type AsmDecl    = Decl Top
+type AsmModule = Module Top
+type AsmDecl = Decl Top
 
 {---------------------------------------------------------------
   low level "assembly" language
 ---------------------------------------------------------------}
 data Top    = Top ![Id] Expr      -- arguments expression
 
-type Atom   = Expr
+type Atom = Expr
 data Expr   = Eval   !Id Expr Expr
             | Match  !Id ![Alt]
             | Prim   !Id ![Atom]
@@ -61,7 +72,7 @@ data Con tag = ConId !Id
 
 instance Pretty Top where
    pretty (Top args expr) =
-      nest 2 (text "\\" <> hsep (map pretty args) <+> text "->" Text.PrettyPrint.Leijen.<$> pretty expr)
+      nest 2 (text "\\" <> hsep (map pretty args) <+> text "->" <$> pretty expr)
 
 {---------------------------------------------------------------
   expressions
@@ -74,26 +85,43 @@ ppArg :: Expr -> Doc
 ppArg = ppExprWith parens
 
 ppExprWith :: (Doc -> Doc) -> Expr -> Doc
-ppExprWith pars expr
-  = case expr of
-      Let x atom e   -> pars $ align $ hang 3 (text "let" <+> ppBind (x,atom)) Text.PrettyPrint.Leijen.<$> (text "in" <+> pretty e)
-      LetRec binds e -> pars $ align $ hang 7 (text "letrec" <+> vcat (map ppBind binds)) Text.PrettyPrint.Leijen.<$> nest 3 (text "in" <+> pretty e)
-      Eval x e e'    -> pars $ align $ hang 7 (text "let!" <+> pretty x <+> text "=" </> pretty e) 
-                                       Text.PrettyPrint.Leijen.<$> nest 3 (text "in" <+> pretty e')
-      Match x alts   -> pars $ align $ hang 2 (text "match" <+> pretty x <+> text "with" Text.PrettyPrint.Leijen.<$> vcat (map pretty alts))
-      Prim x args    -> pars $ text "prim" <> char '[' <> pretty x <+> hsep (map ppArg args) <> char ']'
-      Ap x []        -> pretty x
-      Ap x args      -> pars $ pretty x <+> hsep (map ppArg args)
-      Con con []     -> pretty con
-      Con con args   -> pars $ pretty con <+> hsep (map ppArg args)
-      Lit lit        -> pretty lit
-      Note note e    -> pars $ align $ pretty note </> pretty e
+ppExprWith pars expr = case expr of
+   Let x atom e ->
+      pars
+         $   align
+         $   hang 3 (text "let" <+> ppBind (x, atom))
+         <$> (text "in" <+> pretty e)
+   LetRec binds e ->
+      pars $ align $ hang 7 (text "letrec" <+> vcat (map ppBind binds)) <$> nest
+         3
+         (text "in" <+> pretty e)
+   Eval x e e' ->
+      pars
+         $   align
+         $   hang 7 (text "let!" <+> pretty x <+> text "=" </> pretty e)
+         <$> nest 3 (text "in" <+> pretty e')
+   Match x alts -> pars $ align $ hang
+      2
+      (text "match" <+> pretty x <+> text "with" <$> vcat (map pretty alts))
+   Prim x args ->
+      pars
+         $   text "prim"
+         <>  char '['
+         <>  pretty x
+         <+> hsep (map ppArg args)
+         <>  char ']'
+   Ap  x   []   -> pretty x
+   Ap  x   args -> pars $ pretty x <+> hsep (map ppArg args)
+   Con con []   -> pretty con
+   Con con args -> pars $ pretty con <+> hsep (map ppArg args)
+   Lit lit      -> pretty lit
+   Note note e  -> pars $ align $ pretty note </> pretty e
 
 instance Pretty a => Pretty (Con a) where
-   pretty con =
-      case con of
-         ConId x          -> pretty x
-         ConTag tag arity -> text "(@" <> pretty tag <> char ',' <> pretty arity <> char ')'
+   pretty con = case con of
+      ConId x -> pretty x
+      ConTag tag arity ->
+         text "(@" <> pretty tag <> char ',' <> pretty arity <> char ')'
 
 instance Pretty Note where
    pretty (Occur occ) = angles (pretty occ)
@@ -108,27 +136,23 @@ instance Pretty Occur where
 ---------------------------------------------------------------}
 
 instance Pretty Alt where
-   pretty (Alt pat expr) = 
-      hang 2 (pretty pat <+> text "->" </> pretty expr)
+   pretty (Alt pat expr) = hang 2 (pretty pat <+> text "->" </> pretty expr)
 
 instance Pretty Pat where
-   pretty pat =
-      case pat of
-         PatCon con params -> pretty con <+> hsep (map pretty params)
-         PatVar x          -> pretty x
-         PatLit lit        -> pretty lit
+   pretty pat = case pat of
+      PatCon con params -> pretty con <+> hsep (map pretty params)
+      PatVar x          -> pretty x
+      PatLit lit        -> pretty lit
 
 {---------------------------------------------------------------
   literals and variables
 ---------------------------------------------------------------}
 
-instance Pretty Lit where 
-   pretty lit = 
-      case lit of
-         LitInt i   -> pretty i
-         LitFloat d -> pretty d
-         LitBytes b -> dquotes (string (stringFromBytes b))
+instance Pretty Lit where
+   pretty lit = case lit of
+      LitInt   i -> pretty i
+      LitFloat d -> pretty d
+      LitBytes b -> dquotes (string (stringFromBytes b))
 
 ppBind :: Pretty a => (Id, a) -> Doc
-ppBind (x, atom) = 
-   pretty x <+> text "=" <+> pretty atom
+ppBind (x, atom) = pretty x <+> text "=" <+> pretty atom

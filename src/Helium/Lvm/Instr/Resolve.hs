@@ -3,7 +3,7 @@
 -- is distributed under the terms of the BSD3 License. For more information, 
 -- see the file "LICENSE.txt", which is included in the distribution.
 --------------------------------------------------------------------------------
---  $Id: Resolve.hs 291 2012-11-08 11:27:33Z heere112 $
+--  $Id$
 
 module Helium.Lvm.Instr.Resolve (instrResolve) where
 
@@ -31,15 +31,11 @@ instance Functor Resolve where
   fmap f (R r)      = R (\ctx -> case r ctx of (x,d) -> (f x,d))
 
 instance Applicative Resolve where
-  pure x = R (\(_, _, depth) -> (x, depth))
-
-  (<*>) (R f) (R g) = R (\(base, env, depth) ->
-    let (h, depth') = f (base, env, depth)   
-        (x, depth'') = g (base, env, depth')  
-    in (h x, depth''))
-
+  pure x = R (\(_,_,d) -> (x,d))
+  f1 <*> f2 = f1 >>= \v1 -> f2 >>= (pure . v1)
+  
 instance Monad Resolve where
-  {-return x          = R (\(_,_,d) -> (x,d))-}
+  return            = pure 
   (R r) >>= f       = R (\ctx@(base,env,_) ->
                             case r ctx of
                               (x,depth') -> case f x of

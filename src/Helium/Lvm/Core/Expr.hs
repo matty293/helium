@@ -3,128 +3,188 @@
 -- is distributed under the terms of the BSD3 License. For more information, 
 -- see the file "LICENSE.txt", which is included in the distribution.
 --------------------------------------------------------------------------------
---  $Id: Expr.hs 291 2012-11-08 11:27:33Z heere112 $
+--  $Id$
 
-module Helium.Lvm.Core.Expr 
-   ( CoreModule, CoreDecl, Expr(..), Binds(..), Bind(..)
-   , Alts, Alt(..), Pat(..), Literal(..), Con(..)
-   ) where
+module Helium.Lvm.Core.Expr
+  ( CoreModule
+  , CoreDecl
+  , Expr(..)
+  , Binds(..)
+  , Bind(..)
+  , Alts
+  , Alt(..)
+  , Pat(..)
+  , Literal(..)
+  , Con(..)
+  , Variable(..)
+  , ppPattern
+  , IntType(..)
+  , getExpressionStrictness
+  )
+where
 
-import Helium.Lvm.Common.Byte
-import Helium.Lvm.Common.Id
-import Helium.Lvm.Core.Module
-import Helium.Lvm.Core.PrettyId
-import Text.PrettyPrint.Leijen
+import           Prelude                 hiding ( (<$>) )
+import           Helium.Lvm.Common.Byte
+import           Helium.Lvm.Common.Id
+import           Helium.Lvm.Core.Module
+import           Helium.Lvm.Core.PrettyId
+import           Helium.Lvm.Core.Type
+import           Text.PrettyPrint.Leijen
 
 ----------------------------------------------------------------
 -- Modules
 ----------------------------------------------------------------
 type CoreModule = Module Expr
-type CoreDecl   = Decl Expr
+type CoreDecl = Decl Expr
 
 ----------------------------------------------------------------
 -- Core expressions:
 ----------------------------------------------------------------
-data Expr       = Let       !Binds Expr       
+data Expr       = Let       !Binds Expr
                 | Match     !Id Alts
                 | Ap        Expr Expr
-                | Lam       !Id Expr
-                | Con       !(Con Expr)
+                | ApType    !Expr !Type
+                | Lam       !Bool !Variable Expr
+                | Forall    !Quantor !Kind !Expr
+                | Con       !Con
                 | Var       !Id
                 | Lit       !Literal
 
+data Variable = Variable { variableName :: !Id, variableType :: !Type }
 data Binds      = Rec       ![Bind]
                 | Strict    !Bind
                 | NonRec    !Bind
 
-data Bind       = Bind      !Id Expr
+data Bind       = Bind      !Variable !Expr
 
-type Alts       = [Alt]
+type Alts = [Alt]
 data Alt        = Alt       !Pat Expr
 
-data Pat        = PatCon    !(Con Tag) ![Id]
-                | PatLit    !Literal
-                | PatDefault
+data Pat
+  = PatCon    !Con ![Type] ![Id]
+  | PatLit    !Literal
+  | PatDefault
 
-data Literal    = LitInt    !Int
+data Literal    = LitInt    !Int !IntType
                 | LitDouble !Double
                 | LitBytes  !Bytes
 
-data Con tag    = ConId  !Id
-                | ConTag tag !Arity
-                
+data Con        = ConId  !Id
+                | ConTuple !Arity
+
 ----------------------------------------------------------------
 -- Pretty printing
 ----------------------------------------------------------------
 
 instance Pretty Expr where
-   pretty = ppExpr 0
+  pretty = ppExpr 0 []
 
-ppExpr :: Int -> Expr -> Doc
-ppExpr p expr
-  = case expr of
-   --   (Let (Strict (Bind id1 expr)) (Match id2 alts)) | id1 == id2
-   --               -> prec 0 $ hang 2 (text "case" <+> ppExpr 0 expr <+> text "of" <+> ppId id1 <$> ppAlts alts)
-      Match x as  -> prec 0 $ align (text "match" <+> ppVarId x <+> text "with" <+> text "{" Text.PrettyPrint.Leijen.<$> indent 2 (pretty as)
-                              <+> text "}")
-      Let bs x    -> prec 0 $ align (ppLetBinds bs (text "in" <+> ppExpr 0 x))
-      Lam x e     -> prec 0 $ text "\\" <> ppVarId x <+> ppLams "->" (</>)  e
-      Ap e1 e2    -> prec 9 $ ppExpr  9 e1 <+> ppExpr  10 e2
-      Var x       -> ppVarId  x
-      Con con     -> pretty con
-      Lit lit     -> pretty lit
-  where
-    prec p'  | p' >= p   = id
-             | otherwise = parens
+ppExpr :: Int -> QuantorNames -> Expr -> Doc
+ppExpr p quantorNames expr = case expr of
+  Match x as -> prec 0 $ align
+    (   text "match"
+    <+> ppVarId x
+    <+> text "with"
+    <+> text "{"
+    <$> indent 2 (ppAlts quantorNames as)
+    <+> text "}"
+    )
+  Let bs x -> prec 0 $ align
+    (ppLetBinds quantorNames bs (text "in" <+> ppExpr 0 quantorNames x))
+  Lam strict (Variable x t) e ->
+    prec 0
+      $   text (if strict then "\\ !" else "\\")
+      <>  ppVarId x
+      <>  text ": "
+      <>  ppType 0 quantorNames t
+      <+> text "->"
+      <$> indent 2 (ppExpr 0 quantorNames e)
+  Forall quantor k e ->
+    let quantorName = freshQuantorName quantorNames quantor
+    in  prec 0
+          $   text "forall"
+          <+> text quantorName
+          <>  text ": "
+          <>  pretty k
+          <>  text "."
+          <$> indent 2 (ppExpr 0 (quantorName : quantorNames) e)
+  Ap e1 e2 -> prec 9 $ ppExpr 9 quantorNames e1 <+> ppExpr 10 quantorNames e2
+  ApType e1 t ->
+    prec 9
+      $   ppExpr 9 quantorNames e1
+      <+> text "{ "
+      <>  ppType 0 quantorNames t
+      <>  text " }"
+  Var x   -> ppVarId x
+  Con con -> pretty con
+  Lit lit -> pretty lit
+ where
+  prec p' | p' >= p   = id
+          | otherwise = parens
 
-instance Pretty a => Pretty (Con a) where
-   pretty con =
-      case con of
-         ConId x          -> ppConId x
-         ConTag tag arity -> parens (char '@' <> pretty tag <> comma <> pretty arity)
- 
-----------------------------------------------------------------
---
-----------------------------------------------------------------
-
-ppLams :: String -> (Doc -> Doc -> Doc) -> Expr -> Doc
-ppLams arrow next expr
-  = case expr of
-      Lam x e -> ppVarId x <+> ppLams arrow next  e
-      _       -> text arrow `next` ppExpr  0 expr
-
-ppLetBinds :: Binds -> Doc -> Doc
-ppLetBinds binds doc
-  = case binds of
-      NonRec bind -> nest 4 (text "let" <+> pretty bind) Text.PrettyPrint.Leijen.<$> doc
-      Strict bind -> nest 5 (text "let!" <+> pretty bind) Text.PrettyPrint.Leijen.<$> doc
-      -- Rec recs    -> nest 8 (text "let rec" <+> pretty recs) <$> doc
-      Rec recs    -> nest 4 (text "let" <+> pretty recs) Text.PrettyPrint.Leijen.<$> doc -- let rec not parsable
-
-instance Pretty Bind where
-   pretty (Bind x expr) =
-      nest 2 (ppId  x <+> ppLams "=" (</>)  expr <> semi)
-   prettyList = vcat . map pretty
-
-instance Pretty Alt where
-   pretty (Alt pat expr) =
-      nest 4 (pretty pat <+> text "->" </> ppExpr 0 expr <> semi)
-   prettyList = vcat . map pretty
+instance Pretty Con where
+  pretty con = case con of
+    ConId    x     -> ppConId x
+    ConTuple arity -> parens (char '@' <> pretty arity)
 
 ----------------------------------------------------------------
 --
 ----------------------------------------------------------------
 
-instance Pretty Pat where 
-   pretty pat = 
-      case pat of
-         PatCon con ids -> hsep (pretty con : map ppVarId ids)
-         PatLit lit  -> pretty lit
-         PatDefault  -> text "_"
+ppLetBinds :: QuantorNames -> Binds -> Doc -> Doc
+ppLetBinds quantorNames binds doc = case binds of
+  NonRec bind -> nest 4 (text "let" <+> ppBind quantorNames bind) <$> doc
+  Strict bind -> nest 5 (text "let!" <+> ppBind quantorNames bind) <$> doc
+  Rec    recs -> nest 4 (text "let" <+> ppBindList quantorNames recs) <$> doc -- let rec not parsable
 
-instance Pretty Literal where 
-   pretty lit = 
-      case lit of
-         LitInt i    -> pretty i
-         LitDouble d -> pretty d
-         LitBytes s  -> text (show (stringFromBytes s))
+ppBind :: QuantorNames -> Bind -> Doc
+ppBind quantorNames (Bind (Variable x t) expr) = nest
+  2
+  (   ppId x
+  <>  text ": "
+  <+> ppType 0 quantorNames t
+  <>  text " = "
+  <+> ppExpr 0 quantorNames expr
+  <>  semi
+  )
+
+ppBindList :: QuantorNames -> [Bind] -> Doc
+ppBindList quantorNames = vcat . map (ppBind quantorNames)
+
+ppAlt :: QuantorNames -> Alt -> Doc
+ppAlt quantorNames (Alt pat expr) = nest
+  4
+  (   ppPattern quantorNames pat
+  <+> text "->"
+  </> ppExpr 0 quantorNames expr
+  <>  semi
+  )
+
+ppAlts :: QuantorNames -> [Alt] -> Doc
+ppAlts quantorNames = vcat . map (ppAlt quantorNames)
+
+----------------------------------------------------------------
+--
+----------------------------------------------------------------
+
+
+ppPattern :: QuantorNames -> Pat -> Doc
+ppPattern quantorNames (PatCon con tps ids) = hsep
+  (  pretty con
+  :  map (\tp -> text "{" <+> ppType 0 quantorNames tp <+> text "}") tps
+  ++ map ppVarId ids
+  )
+ppPattern _ (PatLit lit) = pretty lit
+ppPattern _ PatDefault   = text "_"
+
+instance Pretty Literal where
+  pretty lit = case lit of
+    LitInt i t  -> text "(@" <> text (show t) <+> pretty i <> text ")"
+    LitDouble d -> pretty d
+    LitBytes  s -> text (show (stringFromBytes s))
+
+getExpressionStrictness :: Expr -> [Bool]
+getExpressionStrictness (Forall _ _ expr) = getExpressionStrictness expr
+getExpressionStrictness (Lam strict _ expr) =
+  strict : getExpressionStrictness expr
+getExpressionStrictness _ = []

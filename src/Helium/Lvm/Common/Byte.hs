@@ -3,7 +3,7 @@
 -- is distributed under the terms of the BSD3 License. For more information, 
 -- see the file "LICENSE.txt", which is included in the distribution.
 --------------------------------------------------------------------------------
---  $Id: Byte.hs 291 2012-11-08 11:27:33Z heere112 $
+--  $Id$
 module Helium.Lvm.Common.Byte
    ( Byte, Bytes 
    , Monoid(..), unit, isEmpty
@@ -13,16 +13,18 @@ module Helium.Lvm.Common.Byte
    ) where
 
 import qualified Control.Exception as CE (catch, IOException) 
-import Data.Monoid()
+--import Data.Monoid
 import Data.Word
 import System.Exit
 import System.IO
+import Data.Semigroup as Sem
 
 {----------------------------------------------------------------
   types
 ----------------------------------------------------------------}
 type Byte   = Word8
 
+-- | A spine-strict sequence of 'Byte's with @O(1)@ pairwise concatenation
 data Bytes  = Nil
             | Cons Byte   !Bytes    -- Byte is not strict since LvmWrite uses it lazily right now.
             | Cat  !Bytes !Bytes
@@ -65,14 +67,16 @@ max32 = 2^(32::Int) -1 -- Bastiaan (Todo: check)
 {----------------------------------------------------------------
   Byte lists
 ----------------------------------------------------------------}
-instance Semigroup Bytes where
-  bs <> Nil = bs 
-  Nil <> cs = cs
-  bs <> cs  = Cat bs cs 
+
+instance Sem.Semigroup Bytes where
+   bs  <> Nil = bs
+   Nil <> cs  = cs
+   bs  <> cs  = Cat bs cs
 
 instance Monoid Bytes where
    mempty  = Nil
-   
+   mappend = (<>)
+
 isEmpty :: Bytes -> Bool
 isEmpty Nil         = True
 isEmpty (Cons _ _)  = False

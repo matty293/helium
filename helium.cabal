@@ -104,27 +104,19 @@ library
       Helium.Lvm.Asm.Data
       Helium.Lvm.Asm.Inline
       Helium.Lvm.Asm.Occur
-      Helium.Lvm.Asm.ToLvm
       Helium.Lvm.Common.Byte
       Helium.Lvm.Common.Id
       Helium.Lvm.Common.IdMap
       Helium.Lvm.Common.IdSet
+      Helium.Lvm.Constants
       Helium.Lvm.Core.Expr
       Helium.Lvm.Core.FreeVar
-      Helium.Lvm.Core.LetSort
-      Helium.Lvm.Core.Lift
-      Helium.Lvm.Core.Main
       Helium.Lvm.Core.Module
-      Helium.Lvm.Core.Normalize
-      Helium.Lvm.Core.NoShadow
       Helium.Lvm.Core.Parsing.Layout
       Helium.Lvm.Core.Parsing.Lexer
       Helium.Lvm.Core.Parsing.Parser
       Helium.Lvm.Core.Parsing.Token
       Helium.Lvm.Core.PrettyId
-      Helium.Lvm.Core.RemoveDead
-      Helium.Lvm.Core.Saturate
-      Helium.Lvm.Core.ToAsm
       Helium.Lvm.Core.Type
       Helium.Lvm.Core.Utils
       Helium.Lvm.Data
@@ -133,8 +125,6 @@ library
       Helium.Lvm.Instr.Resolve
       Helium.Lvm.Instr.Rewrite
       Helium.Lvm.Path
-      Helium.Lvm.Read
-      Helium.Lvm.Write
       Helium.Main.Args
       Helium.Main.Compile
       Helium.Main.CompileUtils
