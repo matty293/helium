@@ -7,7 +7,7 @@
 --   Portability  :  non-portable (requires extensions)
 -----------------------------------------------------------------------------
 
-module Main where
+module Helium.Top.TopSolver where
 
 import Text.ParserCombinators.Parsec
 import qualified Text.ParserCombinators.Parsec.Token as P

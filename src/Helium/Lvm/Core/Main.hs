@@ -5,7 +5,7 @@
 --------------------------------------------------------------------------------
 --  $Id: Main.hs 300 2014-08-21 10:43:02Z hage0101 $
 
-module Main (main) where
+module Helium.Lvm.Core.Main (main) where
 
 import Control.Monad
 import Helium.Lvm.Common.Id
